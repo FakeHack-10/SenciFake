@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAKE MODS - Generador de Sensi VIP</title>
-    <!-- FUENTE GAMER -->
+    <title>FAKEMODS - VIP SENSI GENERATOR</title>
+    <!-- FUENTES GAMER & TECH -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #06030e;
-            --primary-glow: #a855f7;
-            --secondary-glow: #e879f9;
-            --accent-color: #c084fc;
-            --card-bg: rgba(18, 11, 32, 0.9);
+            --bg-color: #030008;
+            --primary-glow: #00f0ff;
+            --secondary-glow: #7000ff;
+            --accent-pink: #ff007f;
+            --card-bg: rgba(10, 5, 25, 0.85);
+            --border-neon: rgba(0, 240, 255, 0.4);
         }
 
         body.no-select {
@@ -39,127 +40,136 @@
             min-height: 100vh;
             padding: 20px 14px;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(192, 132, 252, 0.35), transparent 55%),
-                radial-gradient(circle at 100% 80%, rgba(147, 51, 234, 0.2), transparent 50%);
+                radial-gradient(circle at 50% 10%, rgba(112, 0, 255, 0.25), transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(0, 240, 255, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.15), transparent 40%);
             background-attachment: fixed;
         }
 
         .container {
-            max-width: 520px;
+            max-width: 560px;
             width: 100%;
             text-align: center;
         }
 
-        h1 {
-            font-size: 34px;
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 30px;
             font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 20%, var(--secondary-glow) 60%, var(--primary-glow) 100%);
+            background: linear-gradient(135deg, #ffffff 20%, var(--primary-glow) 60%, var(--secondary-glow) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
             text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 2px;
         }
 
         .subtitle {
             font-size: 13px;
-            color: #d8b4fe;
+            color: #00f0ff;
             font-weight: 800;
-            letter-spacing: 1.5px;
+            letter-spacing: 3px;
             margin-bottom: 20px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
         }
 
         .card {
             background: var(--card-bg);
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            border-radius: 22px;
-            padding: 22px;
+            border: 1px solid var(--border-neon);
+            border-radius: 20px;
+            padding: 24px;
             margin-bottom: 18px;
             text-align: left;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
         }
 
-        /* PANTALLA DE KEY / ACCESO */
+        /* PANTALLA DE CREDENCIALES (USUARIO / CONTRASEÑA) */
         #authCard {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
-        .key-input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(20, 12, 38, 0.9);
-            border: 2px solid rgba(192, 132, 252, 0.6);
-            border-radius: 14px;
-            color: #ffffff;
-            font-size: 18px;
+        .input-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .input-label {
+            font-size: 12px;
+            color: var(--primary-glow);
             font-weight: 900;
-            text-align: center;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-            outline: none;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+            display: block;
             text-transform: uppercase;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(5, 2, 15, 0.9);
+            border: 2px solid rgba(0, 240, 255, 0.3);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            outline: none;
             transition: all 0.3s ease;
         }
 
-        .key-input:focus {
-            border-color: var(--secondary-glow);
-            box-shadow: 0 0 20px var(--primary-glow);
+        .auth-input:focus {
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
 
         .btn-auth {
             width: 100%;
             padding: 15px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #9333ea, #7c3aed);
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00f0ff, #7000ff);
             color: #ffffff;
             font-weight: 900;
             font-size: 16px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
             text-transform: uppercase;
+            letter-spacing: 1.5px;
             transition: all 0.25s ease;
+            margin-top: 10px;
         }
 
         .btn-auth:hover {
-            filter: brightness(1.15);
+            filter: brightness(1.2);
             transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
         }
 
-        .key-hint {
-            font-size: 12px;
-            color: #cbd5e1;
-            margin-top: 12px;
-            font-weight: 700;
-        }
-
-        .key-hint span {
-            color: var(--secondary-glow);
-        }
-
-        /* CONTENIDO PRINCIPAL (Oculto hasta poner la key) */
+        /* CONTENIDO PRINCIPAL */
         #mainAppContent {
             display: none;
         }
 
         .label-title {
-            font-size: 13px;
-            color: #f0abfc;
-            font-weight: 800;
+            font-size: 12px;
+            color: #a78bfa;
+            font-weight: 900;
             margin-bottom: 8px;
             display: block;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .search-box {
             width: 100%;
             padding: 14px 16px;
-            background: rgba(20, 12, 38, 0.9);
-            border: 1px solid rgba(192, 132, 252, 0.5);
-            border-radius: 14px;
+            background: rgba(5, 2, 15, 0.9);
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            border-radius: 12px;
             color: #ffffff;
             font-size: 15px;
             font-weight: 700;
@@ -169,16 +179,16 @@
         }
 
         .search-box:focus {
-            border-color: var(--secondary-glow);
-            box-shadow: 0 0 20px var(--primary-glow);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
 
         .suggestions-list {
             max-height: 180px;
             overflow-y: auto;
-            background: rgba(15, 8, 28, 0.95);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            border-radius: 12px;
+            background: rgba(8, 4, 20, 0.98);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
             margin-bottom: 16px;
             display: none;
         }
@@ -189,16 +199,17 @@
             font-weight: 700;
             color: #cbd5e1;
             cursor: pointer;
-            border-bottom: 1px solid rgba(192, 132, 252, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: background 0.2s;
         }
 
         .suggestion-item:hover {
-            background: rgba(168, 85, 247, 0.25);
+            background: rgba(0, 240, 255, 0.2);
             color: #ffffff;
         }
 
-        .options-grid {
+        /* GRILLAS DE OPCIONES AVANZADAS */
+        .options-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
@@ -212,28 +223,35 @@
             margin-bottom: 16px;
         }
 
+        .options-grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
         .option-btn {
-            background: rgba(30, 15, 50, 0.8);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            padding: 12px 10px;
-            border-radius: 12px;
+            background: rgba(20, 10, 40, 0.8);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            padding: 11px 8px;
+            border-radius: 10px;
             color: #cbd5e1;
             font-weight: 800;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             text-align: center;
             transition: all 0.2s ease;
         }
 
         .option-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95);
         }
 
         .option-btn.active {
-            background: linear-gradient(135deg, var(--primary-glow), #7c3aed);
+            background: linear-gradient(135deg, #7000ff, #00f0ff);
             color: #ffffff;
-            border-color: var(--secondary-glow);
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            border-color: #00f0ff;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
         }
 
         .btn-generate {
@@ -243,43 +261,47 @@
             gap: 8px;
             width: 100%;
             padding: 15px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #22c55e, #15803d);
-            color: #ffffff;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00ff87, #60efff);
+            color: #030008;
             font-weight: 900;
             font-size: 16px;
             border: none;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 0 25px rgba(0, 255, 135, 0.4);
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
         .btn-generate:hover {
             transform: translateY(-2px);
             filter: brightness(1.15);
+            box-shadow: 0 0 30px rgba(0, 255, 135, 0.7);
         }
 
-        .btn-whatsapp {
+        .btn-social {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             width: 100%;
             padding: 13px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-radius: 12px;
+            background: linear-gradient(135deg, #fe2c55, #25f4ee);
             color: #ffffff;
             font-weight: 900;
-            font-size: 15px;
+            font-size: 14px;
             text-decoration: none;
             margin-bottom: 16px;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 0 15px rgba(254, 44, 85, 0.3);
             transition: all 0.25s ease;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .btn-whatsapp:hover {
+        .btn-social:hover {
             filter: brightness(1.15);
             transform: translateY(-2px);
         }
@@ -290,20 +312,20 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 12px;
-            border-radius: 14px;
-            background: rgba(168, 85, 247, 0.15);
-            color: #f0abfc;
-            border: 1px solid rgba(192, 132, 252, 0.4);
+            padding: 11px;
+            border-radius: 10px;
+            background: rgba(112, 0, 255, 0.15);
+            color: #d8b4fe;
+            border: 1px solid rgba(167, 139, 250, 0.4);
             font-weight: 800;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             transition: all 0.25s ease;
         }
 
         .btn-info:hover {
-            background: rgba(168, 85, 247, 0.3);
+            background: rgba(112, 0, 255, 0.3);
         }
 
         /* RESULTADOS */
@@ -322,21 +344,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(30, 15, 50, 0.7);
-            padding: 10px 14px;
-            border-radius: 12px;
+            background: rgba(15, 8, 30, 0.8);
+            padding: 11px 14px;
+            border-radius: 10px;
             margin-bottom: 8px;
-            border: 1px solid rgba(192, 132, 252, 0.2);
+            border: 1px solid rgba(0, 240, 255, 0.15);
             font-size: 14px;
             font-weight: 700;
         }
 
         .sensi-value {
-            color: var(--secondary-glow);
+            color: var(--primary-glow);
             font-weight: 900;
         }
 
-        /* MODAL DE INFO */
+        /* MODAL */
         .info-modal {
             display: none;
             position: fixed;
@@ -350,17 +372,18 @@
         }
 
         .info-box {
-            background: #140c26;
+            background: #0d061f;
             border: 2px solid var(--primary-glow);
-            border-radius: 20px;
+            border-radius: 18px;
             padding: 24px;
             max-width: 360px;
             width: 100%;
             text-align: center;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
         }
 
         .info-box h3 {
-            color: #f0abfc;
+            color: var(--primary-glow);
             margin-bottom: 10px;
             font-size: 18px;
             font-weight: 900;
@@ -368,13 +391,13 @@
 
         .info-box p {
             color: #cbd5e1;
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 15px;
             line-height: 1.4;
         }
 
         .btn-close-modal {
-            background: linear-gradient(135deg, #f43f5e, #9f1239);
+            background: linear-gradient(135deg, #ff007f, #9f1239);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -384,160 +407,174 @@
         }
 
         .tips-box {
-            background: rgba(20, 10, 35, 0.9);
-            border: 1px dashed rgba(232, 121, 249, 0.5);
-            border-radius: 16px;
-            padding: 16px;
-            margin-top: 15px;
+            background: rgba(10, 4, 22, 0.9);
+            border: 1px dashed rgba(0, 240, 255, 0.4);
+            border-radius: 14px;
+            padding: 14px;
+            margin-top: 14px;
             text-align: left;
         }
 
         .tips-box h4 {
-            color: #f0abfc;
-            font-size: 14px;
-            margin-bottom: 8px;
+            color: var(--primary-glow);
+            font-size: 13px;
+            margin-bottom: 6px;
             font-weight: 900;
             text-transform: uppercase;
         }
 
         .tips-box ul {
-            padding-left: 18px;
-            font-size: 13px;
+            padding-left: 16px;
+            font-size: 12px;
             color: #cbd5e1;
             font-weight: 600;
             line-height: 1.4;
         }
 
         .tips-box li {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 25px;
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover { color: #ffffff; }
 
         footer {
-            margin-top: 30px;
+            margin-top: 25px;
             font-size: 12px;
-            color: #64748b;
-            font-weight: 700;
+            color: #94a3b8;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body class="no-select">
 
     <div class="container">
-        <h1>FAKE MODS SENSI</h1>
-        <span class="subtitle">⚡ Panel de Autenticación & IA VIP</span>
+        <h1 class="main-title">FAKEMODS VIP</h1>
+        <span class="subtitle">⚡ ULTIMATE SENSI ENGINE ⚡</span>
 
-        <!-- TARJETA DE VERIFICACIÓN DE KEY -->
+        <!-- TARJETA DE ACCESO CON USUARIO Y CONTRASEÑA -->
         <div class="card" id="authCard">
-            <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 15px;">🔒 INGRESA TU KEY VIP PARA CONTINUAR</span>
-            <input type="text" id="keyInput" class="key-input" placeholder="Ej: FAKE o MODS" autocomplete="off">
-            <button class="btn-auth" onclick="verifyKey()">DESBLOQUEAR PANEL ⚡</button>
-            <div class="key-hint">Pista: Las claves de acceso son <span>FAKE</span> o <span>MODS</span></div>
+            <span class="label-title" style="text-align: center; font-size: 14px; margin-bottom: 18px; color: var(--primary-glow);">🔒 ACCESO RESTRINGIDO VIP</span>
+            
+            <div class="input-group">
+                <label class="input-label">Usuario:</label>
+                <input type="text" id="userInput" class="auth-input" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Contraseña:</label>
+                <input type="password" id="passInput" class="auth-input" autocomplete="off">
+            </div>
+
+            <button class="btn-auth" onclick="verifyCredentials()">ACCEDER AL SISTEMA 🚀</button>
         </div>
 
-        <!-- CONTENIDO COMPLETO DEL GENERADOR (DESPUÉS DE PONER LA KEY) -->
+        <!-- CONTENIDO PRINCIPAL DEL GENERADOR -->
         <div id="mainAppContent">
             <div class="card">
-                <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn-whatsapp">
-                    💬 Únete a nuestro canal de WhatsApp
+                <a href="https://www.tiktok.com/@andresk1ng?_r=1&_t=ZS-99uJ7RMwf00" target="_blank" class="btn-social">
+                    🎵 Sígueme en TikTok (@andresk1ng)
                 </a>
 
-                <span class="label-title">🎯 MODO DE IA</span>
-                <div class="options-grid" id="modeGrid">
-                    <div class="option-btn active" onclick="setMode('VIP', this)">⚡ VIP IA PRO</div>
-                    <div class="option-btn" onclick="setMode('UNIVERSAL', this)">🌐 UNIVERSAL</div>
+                <span class="label-title">🎯 MODO DE INTELIGENCIA ARTIFICIAL</span>
+                <div class="options-grid-2" id="modeGrid">
+                    <div class="option-btn active" onclick="setMode('VIP PRO', this)">⚡ VIP IA PRO</div>
+                    <div class="option-btn" onclick="setMode('ULTRA PRECISE', this)">🎯 ULTRA PRECISE</div>
                 </div>
 
-                <span class="label-title">📱 ESTADO DE DPI</span>
-                <div class="options-grid" id="dpiGrid">
-                    <div class="option-btn active" onclick="setDpiType('CON DPI', this)">🔥 CON DPI</div>
-                    <div class="option-btn" onclick="setDpiType('SIN DPI', this)">⚡ SIN DPI</div>
+                <span class="label-title">📱 CONFIGURACIÓN DE DPI</span>
+                <div class="options-grid-2" id="dpiGrid">
+                    <div class="option-btn active" onclick="setDpiType('CON DPI', this)">🔥 CON DPI OPTIMIZADO</div>
+                    <div class="option-btn" onclick="setDpiType('SIN DPI', this)">⚡ SIN DPI (DEFAULT)</div>
                 </div>
 
-                <span class="label-title">⚡ TIPO DE SENSIBILIDAD</span>
+                <span class="label-title">⚡ PERFIL DE SENSIBILIDAD</span>
                 <div class="options-grid-3" id="sensiGrid">
-                    <div class="option-btn" onclick="setSensiType('BAJA', this)">⬇️ BAJA</div>
-                    <div class="option-btn active" onclick="setSensiType('MEDIA', this)">⏺️ MEDIA</div>
-                    <div class="option-btn" onclick="setSensiType('ALTA', this)">⬆️ ALTA</div>
+                    <div class="option-btn" onclick="setSensiType('BAJA', this)">⬇️ BAJA STABLE</div>
+                    <div class="option-btn active" onclick="setSensiType('MEDIA', this)">⏺️ BALANCED</div>
+                    <div class="option-btn" onclick="setSensiType('ALTA', this)">⬆️ EXTREME FAST</div>
                 </div>
 
-                <span class="label-title">🔍 BUSCA TU CELULAR (Más de 120 modelos)</span>
-                <input type="text" id="deviceSearchInput" class="search-box" placeholder="Escribe tu modelo aquí..." oninput="filterDevices()" autocomplete="off">
+                <span class="label-title">🎯 TIPO DE TAREAS / DISPARO</span>
+                <div class="options-grid-3" id="shotGrid">
+                    <div class="option-btn active" onclick="setShotType('TODO ROJO', this)">🔴 TODO ROJO</div>
+                    <div class="option-btn" onclick="setShotType('BALANCEADO', this)">⚖️ BALANCED</div>
+                    <div class="option-btn" onclick="setShotType('MOVIMIENTO', this)">💨 VELOZ</div>
+                </div>
+
+                <span class="label-title">🎮 VERSIÓN DE JUEGO / MOTOR</span>
+                <div class="options-grid-4" id="engineGrid">
+                    <div class="option-btn active" onclick="setEngine('V1.8', this)">V1.8</div>
+                    <div class="option-btn" onclick="setEngine('V1.9', this)">V1.9</div>
+                    <div class="option-btn" onclick="setEngine('V2.0', this)">V2.0</div>
+                    <div class="option-btn" onclick="setEngine('VIP MAX', this)">MAX</div>
+                </div>
+
+                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Catálogo Ampliado)</span>
+                <input type="text" id="deviceSearchInput" class="search-box" placeholder="Busca tu marca o modelo..." oninput="filterDevices()" autocomplete="off">
                 <div id="suggestionsList" class="suggestions-list"></div>
 
-                <button class="btn-info" onclick="openInfoModal()">ℹ️ ¿No sabes tu modelo? Ver info del cel</button>
+                <button class="btn-info" onclick="openInfoModal()">ℹ️ ¿Cómo saber el nombre exacto de tu cel?</button>
 
-                <button class="btn-generate" onclick="generateSensi()">⚡ GENERAR SENSI VIP</button>
+                <button class="btn-generate" onclick="generateSensi()">⚡ GENERAR CONFIGURACIÓN VIP</button>
             </div>
 
             <div class="card result-container" id="resultCard">
-                <span class="label-title" style="text-align: center; font-size: 16px; margin-bottom: 14px; color: #4ade80;">✅ ¡CONFIGURACIÓN EXITOSA!</span>
+                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CONFIGURACIÓN GENERADA CON ÉXITO</span>
                 
-                <p id="targetDeviceText" style="font-size: 13px; color: #cbd5e1; margin-bottom: 12px; text-align: center; font-weight: 800;"></p>
+                <p id="targetDeviceText" style="font-size: 12px; color: #cbd5e1; margin-bottom: 12px; text-align: center; font-weight: 800;"></p>
 
                 <div class="sensi-row"><span>General:</span> <span class="sensi-value" id="valGen">98%</span></div>
                 <div class="sensi-row"><span>Mira de Punto Rojo:</span> <span class="sensi-value" id="valRed">95%</span></div>
                 <div class="sensi-row"><span>Mira 2X:</span> <span class="sensi-value" id="val2x">94%</span></div>
                 <div class="sensi-row"><span>Mira 4X:</span> <span class="sensi-value" id="val4x">96%</span></div>
+                <div class="sensi-row"><span>Mira AWM / Francotirador:</span> <span class="sensi-value" id="valAwm">55%</span></div>
                 <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">85%</span></div>
                 <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">580</span></div>
                 <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">42% - 46%</span></div>
 
                 <div class="tips-box">
-                    <h4>💡 Tips Pro para esta Configuración:</h4>
+                    <h4>💡 Tips de Rendimiento FAKEMODS:</h4>
                     <ul>
-                        <li><b>Levantamiento de mira:</b> Haz un movimiento seco y rápido hacia arriba justo al disparar.</li>
-                        <li><b>Limpieza de pantalla:</b> Mantén la pantalla limpia de grasa para evitar que el dedo se frene.</li>
-                        <li><b>Práctica:</b> Prueba primero en Modo Entreno para adaptarte al cambio de sensibilidad.</li>
+                        <li><b>Técnica de levante:</b> Haz un arrastre limpio y vertical acompañado de tu botón.</li>
+                        <li><b>Estabilidad:</b> Juega con brillo medio-alto para evitar caídas de FPS.</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <a href="https://github.com/FakeHack-10" target="_blank" class="back-link">← Ir al perfil principal / Repositorios</a>
     </div>
 
     <div class="info-modal" id="infoModal">
         <div class="info-box">
-            <h3>🔍 ¿CÓMO VER TU MODELO?</h3>
-            <p>Ve a los <b>Ajustes</b> de tu teléfono ⚙️ -> Baja hasta la opción <b>Acerca del teléfono</b> (o Sistema) -> Ahí verás el nombre exacto de tu dispositivo para buscarlo fácilmente.</p>
+            <h3>📱 GUÍA DE DISPOSITIVO</h3>
+            <p>Dirígete a <b>Ajustes ➔ Acerca del teléfono ➔ Nombre del dispositivo</b> para verificar que coincida exactamente con el de la lista.</p>
             <button class="btn-close-modal" onclick="closeInfoModal()">¡Entendido!</button>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 FAKE MODS - Todos los derechos reservados.</p>
+        <p>COPYRIGHT: FAKEMODS - 2026</p>
     </footer>
 
     <script>
         document.oncontextmenu = () => false;
 
-        const validKeys = ['FAKE', 'MODS', 'VIP2026', 'SENSI'];
+        function verifyCredentials() {
+            let user = document.getElementById('userInput').value.trim();
+            let pass = document.getElementById('passInput').value.trim();
 
-        function verifyKey() {
-            let inputKey = document.getElementById('keyInput').value.trim().toUpperCase();
-            if (validKeys.includes(inputKey)) {
+            if (user === 'FAKE' && pass === 'MODS10') {
                 document.getElementById('authCard').style.display = 'none';
                 document.getElementById('mainAppContent').style.display = 'block';
             } else {
-                alert('❌ Key incorrecta o expirada. Prueba con FAKE o MODS.');
+                alert('❌ Usuario o contraseña incorrectos. Verifica tus credenciales (USUARIO: FAKE / CONTRASEÑA: MODS10)');
             }
         }
 
-        let selectedMode = 'VIP';
+        let selectedMode = 'VIP PRO';
         let selectedDpi = 'CON DPI';
         let selectedSensiType = 'MEDIA';
+        let selectedShotType = 'TODO ROJO';
+        let selectedEngine = 'V1.8';
         let selectedDevice = '';
 
         const allDevices = [
@@ -664,6 +701,20 @@
             element.classList.add('active');
         }
 
+        function setShotType(type, element) {
+            selectedShotType = type;
+            let container = document.getElementById('shotGrid');
+            container.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function setEngine(engine, element) {
+            selectedEngine = engine;
+            let container = document.getElementById('engineGrid');
+            container.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+
         function openInfoModal() {
             document.getElementById('infoModal').style.display = 'flex';
         }
@@ -678,56 +729,61 @@
             let targetText = document.getElementById('targetDeviceText');
 
             if (inputVal === "") {
-                alert("Por favor escribe o busca tu modelo de celular.");
+                alert("Por favor escribe o selecciona tu modelo de celular en el buscador.");
                 return;
             }
 
             selectedDevice = inputVal;
-            let modeText = selectedMode === 'VIP' ? '⚡ VIP IA PRO' : '🌐 UNIVERSAL';
-            targetText.innerText = "📱 " + selectedDevice + " | Modo: " + modeText + " | " + selectedSensiType;
+            targetText.innerText = "📱 " + selectedDevice + " | IA: " + selectedMode + " | Motor: " + selectedEngine;
 
             let hash = 0;
             for (let i = 0; i < selectedDevice.length; i++) {
                 hash += selectedDevice.charCodeAt(i);
             }
 
-            let baseGen = 80, baseRed = 75, base2x = 75, base4x = 76, baseDpi = 500, baseFire = 45;
+            let baseGen = 88, baseRed = 85, base2x = 84, base4x = 86, baseAwm = 50, baseDpi = 560, baseFire = 44;
 
             if (selectedSensiType === 'BAJA') {
-                baseGen = 65 + (hash % 10);
-                baseRed = 62 + (hash % 8);
-                base2x = 64 + (hash % 8);
-                base4x = 63 + (hash % 8);
-                baseDpi = 410 + (hash % 50);
-                baseFire = 50;
+                baseGen = 68 + (hash % 8);
+                baseRed = 65 + (hash % 8);
+                base2x = 66 + (hash % 7);
+                base4x = 67 + (hash % 7);
+                baseAwm = 42;
+                baseDpi = 420 + (hash % 40);
+                baseFire = 48;
             } else if (selectedSensiType === 'MEDIA') {
-                baseGen = 84 + (hash % 8);
-                baseRed = 82 + (hash % 7);
-                base2x = 83 + (hash % 7);
-                base4x = 85 + (hash % 6);
-                baseDpi = 540 + (hash % 60);
-                baseFire = 45;
+                baseGen = 86 + (hash % 7);
+                baseRed = 84 + (hash % 6);
+                base2x = 83 + (hash % 6);
+                base4x = 85 + (hash % 5);
+                baseAwm = 52;
+                baseDpi = 550 + (hash % 50);
+                baseFire = 44;
             } else if (selectedSensiType === 'ALTA') {
-                baseGen = 94 + (hash % 5);
-                baseRed = 93 + (hash % 5);
-                base2x = 92 + (hash % 6);
-                base4x = 95 + (hash % 4);
-                baseDpi = 610 + (hash % 100);
+                baseGen = 95 + (hash % 4);
+                baseRed = 94 + (hash % 4);
+                base2x = 93 + (hash % 5);
+                base4x = 96 + (hash % 3);
+                baseAwm = 62;
+                baseDpi = 620 + (hash % 80);
                 baseFire = 39;
             }
 
-            if (selectedMode === 'UNIVERSAL') {
-                baseGen -= 3;
-                baseRed -= 2;
+            if (selectedShotType === 'TODO ROJO') {
+                baseRed += 2;
+                baseGen += 1;
+            } else if (selectedShotType === 'VELOZ') {
+                baseGen += 3;
             }
 
             document.getElementById('valGen').innerText = baseGen + '%';
             document.getElementById('valRed').innerText = baseRed + '%';
             document.getElementById('val2x').innerText = base2x + '%';
             document.getElementById('val4x').innerText = base4x + '%';
-            document.getElementById('valCam').innerText = (78 + (hash % 12)) + '%';
+            document.getElementById('valAwm').innerText = baseAwm + '%';
+            document.getElementById('valCam').innerText = (80 + (hash % 10)) + '%';
             document.getElementById('valDpi').innerText = baseDpi;
-            document.getElementById('valFire').innerText = (baseFire - 2) + '% - ' + (baseFire + 4) + '%';
+            document.getElementById('valFire').innerText = (baseFire - 2) + '% - ' + (baseFire + 3) + '%';
 
             resultCard.style.display = 'block';
             resultCard.scrollIntoView({ behavior: 'smooth' });
