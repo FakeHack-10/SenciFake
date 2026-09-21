@@ -325,7 +325,7 @@
 
     <div class="container">
         <h1>FAKE MODS SENSI</h1>
-        <span class="subtitle">⚡ Selector Inteligente de Dispositivos</span>
+        <span class="subtitle">⚡ Selector Universal de Dispositivos</span>
 
         <div class="card">
             <span class="label-title">🎯 MODO DE IA</span>
@@ -355,9 +355,18 @@
                 <option value="xiaomi">Xiaomi / POCO / Redmi</option>
                 <option value="motorola">Motorola</option>
                 <option value="iphone">Apple / iPhone</option>
-                <option value="tcl">TCL / Alcatel</option>
+                <option value="infinix">Infinix</option>
+                <option value="tecno">Tecno Mobile</option>
+                <option value="realme">Realme</option>
+                <option value="oppo">Oppo</option>
+                <option value="vivo">Vivo</option>
                 <option value="huawei">Huawei / Honor</option>
-                <option value="other">Otro / Desconocido</option>
+                <option value="zte">ZTE / Nubia</option>
+                <option value="oneplus">OnePlus</option>
+                <option value="asus">Asus (ROG Phone)</option>
+                <option value="lenovo">Lenovo</option>
+                <option value="tcl">TCL / Alcatel</option>
+                <option value="other">Otro / Cualquier otro celular</option>
             </select>
 
             <!-- SELECCIÓN DE MODELO EXACTO -->
@@ -419,31 +428,71 @@
         let selectedDpi = 'CON DPI';
         let selectedSensiType = 'MEDIA';
 
-        // Base de datos de modelos por marca
+        // Base de datos masiva con todas las marcas y modelos principales
         const modelsByBrand = {
             samsung: [
-                "Samsung Galaxy A05 / A05s", "Samsung Galaxy A14 / A15", "Samsung Galaxy A24 / A25", 
-                "Samsung Galaxy A34 / A35", "Samsung Galaxy A54 / A55", "Samsung Galaxy S23 / S24 Ultra", "Samsung Galaxy S22 / S21"
+                "Samsung Galaxy A03 / A04 / A05 / A05s", "Samsung Galaxy A13 / A14 / A15", 
+                "Samsung Galaxy A22 / A23 / A24 / A25", "Samsung Galaxy A32 / A33 / A34 / A35", 
+                "Samsung Galaxy A52 / A53 / A54 / A55", "Samsung Galaxy A71 / A72 / A73",
+                "Samsung Galaxy S20 / S21 / S22 / S23 / S24 Ultra", "Samsung Galaxy Note 10 / 20", "Samsung Galaxy J2 / J4 / J6 / J7 / J8 (Gama baja clásica)"
             ],
             xiaomi: [
-                "POCO X5 / X6 Pro", "POCO M5 / M6 Pro", "POCO F5 / F6", 
-                "Redmi Note 11 / 12 / 13 Pro", "Xiaomi 13 / 14", "Redmi 12 / 13C"
+                "POCO X3 / X4 / X5 / X6 Pro", "POCO M3 / M4 / M5 / M6 Pro", "POCO F3 / F4 / F5 / F6", 
+                "Redmi Note 9 / 10 / 11 / 12 / 13 Pro", "Xiaomi Mi 11 / 12 / 13 / 14", 
+                "Redmi 9 / 10 / 12 / 13C", "Redmi A1 / A2 / A3"
             ],
             motorola: [
-                "Moto G14 / G24", "Moto G54 / G84", "Moto Edge 40 / 50", "Moto G23 / G32"
+                "Moto E13 / E20 / E22 / E32", "Moto G13 / G14 / G20 / G22 / G23 / G24", 
+                "Moto G30 / G31 / G32 / G41 / G42 / G50 / G52 / G53 / G54", 
+                "Moto G60 / G71 / G72 / G82 / G84", "Moto Edge 30 / 40 / 50"
             ],
             iphone: [
-                "iPhone 11 / 11 Pro", "iPhone 12 / 12 Pro", "iPhone 13 / 13 Pro", 
-                "iPhone 14 / 14 Pro Max", "iPhone 15 / 15 Pro Max", "iPhone SE"
+                "iPhone 7 / 8 / X / XR", "iPhone 11 / 11 Pro / 11 Pro Max", 
+                "iPhone 12 / 12 mini / 12 Pro / 12 Pro Max", "iPhone 13 / 13 mini / 13 Pro / 13 Pro Max", 
+                "iPhone 14 / 14 Plus / 14 Pro / 14 Pro Max", "iPhone 15 / 15 Plus / 15 Pro / 15 Pro Max", "iPhone SE (1ª, 2ª y 3ª gen)"
             ],
-            tcl: [
-                "TCL 40 SE / 40 NXTPAPER", "TCL 30 SE / 30 5G", "TCL 20 Pro / 20 SE"
+            infinix: [
+                "Infinix Hot 10 / 11 / 12 / 30 / 40", "Infinix Note 10 / 11 / 12 / 30 / 40 Pro", 
+                "Infinix Smart 6 / 7 / 8", "Infinix Zero 20 / 30 / Ultra"
+            ],
+            tecno: [
+                "Tecno Spark 8 / 9 / 10 / 20 Pro", "Tecno Pova 4 / 5 / 6 Pro", 
+                "Tecno Camon 18 / 19 / 20 / 30 Premier"
+            ],
+            realme: [
+                "Realme C11 / C21 / C25 / C30 / C33 / C53 / C55 / C67", 
+                "Realme 8 / 9 / 10 / 11 / 12 Pro", "Realme GT Master / Neo / 3 / 5"
+            ],
+            oppo: [
+                "Oppo A16 / A17 / A18 / A38 / A57 / A58 / A78 / A79", 
+                "Oppo Reno 5 / 6 / 7 / 8 / 10 / 11 Pro", "Oppo Find X3 / X5 / X7"
+            ],
+            vivo: [
+                "Vivo Y01 / Y02 / Y11 / Y12 / Y15 / Y1s / Y21 / Y22 / Y27 / Y35 / Y36", 
+                "Vivo V21 / V23 / V25 / V27 / V29 / V30", "Vivo X60 / X70 / X80 / X90 / X100"
             ],
             huawei: [
-                "Huawei Nova 10 / Nova 11", "Huawei P50 / P60 Pro", "Huawei Y9a / Y70"
+                "Huawei Y5p / Y6p / Y7a / Y9a", "Huawei Nova 8 / 9 / 10 / 11 / 12", 
+                "Huawei P30 / P40 / P50 / P60 Pro", "Honor X6 / X7 / X8 / X9", "Honor 50 / 70 / 90"
+            ],
+            zte: [
+                "ZTE Blade A31 / A51 / A52 / A71 / A72 / A73", 
+                "ZTE Blade V30 / V40 / V50 Smart", "Nubia RedMagic 7 / 8 / 9 Pro (Gamer)"
+            ],
+            oneplus: [
+                "OnePlus Nord N10 / N20 / N30 / CE", "OnePlus 8 / 9 / 10 / 11 / 12"
+            ],
+            asus: [
+                "Asus ROG Phone 3 / 5 / 6 / 7 / 8 (Gamer)", "Asus Zenfone 8 / 9 / 10"
+            ],
+            lenovo: [
+                "Lenovo K13 / K14 / Legion Duel (Gamer)"
+            ],
+            tcl: [
+                "TCL 20 SE / 20 Pro", "TCL 30 SE / 30 5G", "TCL 40 SE / 40 NXTPAPER / 40 NXTWEAR"
             ],
             other: [
-                "Otro Dispositivo Android / Tablet"
+                "Cualquier otro celular genérico / Tablet Android"
             ]
         };
 
