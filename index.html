@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAKE MODS - Generador de Sensi VIP</title>
+    <!-- FUENTE GAMER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #06030e;
+            --primary-glow: #a855f7;
+            --secondary-glow: #e879f9;
+            --accent-color: #c084fc;
+            --card-bg: rgba(18, 11, 32, 0.85);
+        }
+
+        body.no-select {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 14px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(192, 132, 252, 0.35), transparent 55%),
+                radial-gradient(circle at 100% 80%, rgba(147, 51, 234, 0.2), transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 20%, var(--secondary-glow) 60%, var(--primary-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #d8b4fe;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 18px;
+            text-align: left;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .label-title {
+            font-size: 13px;
+            color: #f0abfc;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(20, 12, 38, 0.9);
+            border: 1px solid rgba(192, 132, 252, 0.5);
+            border-radius: 14px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-box:focus {
+            border-color: var(--secondary-glow);
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .option-btn {
+            background: rgba(30, 15, 50, 0.8);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            padding: 12px;
+            border-radius: 12px;
+            color: #cbd5e1;
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.25s ease;
+        }
+
+        .option-btn.active {
+            background: linear-gradient(135deg, var(--primary-glow), #7c3aed);
+            color: #ffffff;
+            border-color: var(--secondary-glow);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+        }
+
+        .btn-generate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+            text-transform: uppercase;
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15);
+        }
+
+        /* RESULTADOS */
+        .result-container {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sensi-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(30, 15, 50, 0.7);
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(192, 132, 252, 0.2);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .sensi-value {
+            color: var(--secondary-glow);
+            font-weight: 900;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="no-select">
+
+    <div class="container">
+        <h1>FAKE MODS SENSI</h1>
+        <span class="subtitle">⚡ Optimizador Automático de Dispositivos</span>
+
+        <div class="card">
+            <span class="label-title">🎯 MODO DE CONFIGURACIÓN</span>
+            <div class="options-grid">
+                <div class="option-btn active" onclick="setMode('VIP', this)">⚡ VIP IA PRO</div>
+                <div class="option-btn" onclick="setMode('UNIVERSAL', this)">🌐 UNIVERSAL</div>
+            </div>
+
+            <span class="label-title">📱 TIPO DE DPI</span>
+            <div class="options-grid">
+                <div class="option-btn active" onclick="setDpiType('CON DPI', this)">🔥 CON DPI</div>
+                <div class="option-btn" onclick="setDpiType('SIN DPI', this)">⚡ SIN DPI</div>
+            </div>
+
+            <span class="label-title">🔍 INGRESA TU MODELO DE CELULAR</span>
+            <input type="text" id="deviceInput" class="input-box" placeholder="Ej: TCL, Samsung A54, POCO M5...">
+
+            <button class="btn-generate" onclick="generateSensi()">⚡ GENERAR SENSI VIP</button>
+        </div>
+
+        <!-- SECCIÓN DE RESULTADOS -->
+        <div class="card result-container" id="resultCard">
+            <span class="label-title" style="text-align: center; font-size: 16px; margin-bottom: 14px; color: #4ade80;">✅ ¡CONFIGURACIÓN EXITOSA!</span>
+            
+            <p id="targetDeviceText" style="font-size: 13px; color: #cbd5e1; margin-bottom: 12px; text-align: center; font-weight: 800;"></p>
+
+            <div class="sensi-row"><span>General:</span> <span class="sensi-value" id="valGen">98%</span></div>
+            <div class="sensi-row"><span>Mira de Punto Rojo:</span> <span class="sensi-value" id="valRed">95%</span></div>
+            <div class="sensi-row"><span>Mira 2X:</span> <span class="sensi-value" id="val2x">94%</span></div>
+            <div class="sensi-row"><span>Mira 4X:</span> <span class="sensi-value" id="val4x">96%</span></div>
+            <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">85%</span></div>
+            <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">580</span></div>
+            <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">42% - 46%</span></div>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver al sitio principal de descargas</a>
+    </div>
+
+    <footer>
+        <p>© 2026 FAKE MODS - Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.oncontextmenu = () => false;
+
+        let selectedMode = 'VIP';
+        let selectedDpi = 'CON DPI';
+
+        function setMode(mode, element) {
+            selectedMode = mode;
+            document.querySelectorAll('.options-grid')[0].querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function setDpiType(type, element) {
+            selectedDpi = type;
+            document.querySelectorAll('.options-grid')[1].querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            
+            let dpiRow = document.getElementById('dpiRow');
+            dpiRow.style.display = (type === 'SIN DPI') ? 'none' : 'flex';
+        }
+
+        function generateSensi() {
+            let device = document.getElementById('deviceInput').value.trim();
+            let resultCard = document.getElementById('resultCard');
+            let targetText = document.getElementById('targetDeviceText');
+
+            if (device === "") {
+                alert("Por favor ingresa el modelo de tu celular.");
+                return;
+            }
+
+            // Simulamos generación inteligente basada en texto ingresado
+            targetText.innerText = "📱 Dispositivo detectado: " + device.toUpperCase();
+
+            // Generamos variaciones aleatorias pero precisas según el nombre para que parezca real
+            let hash = 0;
+            for (let i = 0; i < device.length; i++) {
+                hash += device.charCodeAt(i);
+            }
+
+            document.getElementById('valGen').innerText = (90 + (hash % 10)) + '%';
+            document.getElementById('valRed').innerText = (88 + ((hash * 3) % 12)) + '%';
+            document.getElementById('val2x').innerText = (89 + ((hash * 5) % 11)) + '%';
+            document.getElementById('val4x').innerText = (91 + ((hash * 7) % 9)) + '%';
+            document.getElementById('valCam').innerText = (80 + (hash % 15)) + '%';
+            document.getElementById('valDpi').innerText = 500 + (hash % 150);
+            document.getElementById('valFire').innerText = (38 + (hash % 12)) + '% - ' + (43 + (hash % 10)) + '%';
+
+            resultCard.style.display = 'block';
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
