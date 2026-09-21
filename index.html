@@ -223,13 +223,6 @@
             margin-bottom: 16px;
         }
 
-        .options-grid-4 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-
         .option-btn {
             background: rgba(20, 10, 40, 0.8);
             border: 1px solid rgba(167, 139, 250, 0.3);
@@ -530,12 +523,12 @@
                     <div class="option-btn" onclick="setShotType('MOVIMIENTO', this)">💨 VELOZ</div>
                 </div>
 
-                <span class="label-title">🎮 VERSIÓN DE JUEGO / MOTOR</span>
-                <div class="options-grid-4" id="engineGrid">
-                    <div class="option-btn active" onclick="setEngine('V1.8', this)">V1.8</div>
-                    <div class="option-btn" onclick="setEngine('V1.9', this)">V1.9</div>
-                    <div class="option-btn" onclick="setEngine('V2.0', this)">V2.0</div>
-                    <div class="option-btn" onclick="setEngine('VIP MAX', this)">MAX</div>
+                <span class="label-title">🤖 ALGORITMO DE ASISTENCIA / IA DE PRECISIÓN</span>
+                <div class="options-grid-2" id="engineGrid">
+                    <div class="option-btn active" onclick="setEngine('Aimbot AI v4.2', this)">🧠 Aimbot AI v4.2</div>
+                    <div class="option-btn" onclick="setEngine('Anti-Recoil Pro', this)">🛡️ Anti-Recoil Pro</div>
+                    <div class="option-btn" onclick="setEngine('Headshot Lock VIP', this)">🎯 Headshot Lock VIP</div>
+                    <div class="option-btn" onclick="setEngine('Zero Delay Net', this)">⚡ Zero Delay Net</div>
                 </div>
 
                 <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Catálogo Ampliado)</span>
@@ -603,7 +596,7 @@
         let selectedDpi = 'CON DPI';
         let selectedSensiType = 'MEDIA';
         let selectedShotType = 'TODO ROJO';
-        let selectedEngine = 'V1.8';
+        let selectedEngine = 'Aimbot AI v4.2';
         let selectedDevice = '';
 
         const allDevices = [
@@ -665,8 +658,7 @@
             "Huawei Y5p", "Huawei Y6p", "Huawei Y7a", "Huawei Y9a", "Huawei Nova 8", "Huawei Nova 9",
             "Huawei Nova 10", "Huawei Nova 11", "Huawei P30", "Huawei P40", "Huawei P50 Pro", "Huawei P60 Pro",
             "Honor X6", "Honor X7", "Honor X8", "Honor X9", "Honor 50", "Honor 70", "Honor 90",
-            "ZTE Blade A31", "ZTE Blade A51", "ZTE Blade A52", "ZTE Blade A71", "ZTE Blade A72",
-            "ZTE Blade A73", "ZTE Blade V30", "ZTE Blade V40", "ZTE Blade V50 Smart",
+            "ZTE Blade A31", "ZTE Blade A51", "ZTE Blade A52", "ZTE Blade A71", "ZTE Blade A72", "ZTE Blade A73", "ZTE Blade V30", "ZTE Blade V40", "ZTE Blade V50 Smart",
             "OnePlus Nord N10", "OnePlus Nord N20", "OnePlus Nord N30", "OnePlus 8", "OnePlus 9", "OnePlus 10 Pro", "OnePlus 11", "OnePlus 12",
             "Asus ROG Phone 5", "Asus ROG Phone 6", "Asus ROG Phone 7", "Asus Zenfone 9", "Asus Zenfone 10",
             "Lenovo K13", "Lenovo K14", "TCL 20 SE", "TCL 30 SE", "TCL 40 SE", "TCL 40 NXTPAPER",
