@@ -116,14 +116,21 @@
             margin-bottom: 16px;
         }
 
+        .options-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
         .option-btn {
             background: rgba(30, 15, 50, 0.8);
             border: 1px solid rgba(192, 132, 252, 0.3);
-            padding: 12px;
+            padding: 12px 10px;
             border-radius: 12px;
             color: #cbd5e1;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             text-align: center;
             transition: all 0.25s ease;
@@ -190,6 +197,36 @@
             font-weight: 900;
         }
 
+        /* SECCIÓN DE TIPS */
+        .tips-box {
+            background: rgba(20, 10, 35, 0.9);
+            border: 1px dashed rgba(232, 121, 249, 0.5);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .tips-box h4 {
+            color: #f0abfc;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .tips-box ul {
+            padding-left: 18px;
+            font-size: 13px;
+            color: #cbd5e1;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .tips-box li {
+            margin-bottom: 6px;
+        }
+
         .back-link {
             display: inline-block;
             margin-top: 25px;
@@ -216,23 +253,30 @@
 
     <div class="container">
         <h1>FAKE MODS SENSI</h1>
-        <span class="subtitle">⚡ Optimizador Automático de Dispositivos</span>
+        <span class="subtitle">⚡ Optimizador Inteligente de Dispositivos</span>
 
         <div class="card">
-            <span class="label-title">🎯 MODO DE CONFIGURACIÓN</span>
+            <span class="label-title">🎯 MODO DE IA</span>
             <div class="options-grid">
                 <div class="option-btn active" onclick="setMode('VIP', this)">⚡ VIP IA PRO</div>
                 <div class="option-btn" onclick="setMode('UNIVERSAL', this)">🌐 UNIVERSAL</div>
             </div>
 
-            <span class="label-title">📱 TIPO DE DPI</span>
+            <span class="label-title">📱 ESTADO DE DPI</span>
             <div class="options-grid">
                 <div class="option-btn active" onclick="setDpiType('CON DPI', this)">🔥 CON DPI</div>
                 <div class="option-btn" onclick="setDpiType('SIN DPI', this)">⚡ SIN DPI</div>
             </div>
 
+            <span class="label-title">⚡ TIPO DE SENSIBILIDAD</span>
+            <div class="options-grid-3">
+                <div class="option-btn" onclick="setSensiType('BAJA', this)">⬇️ BAJA</div>
+                <div class="option-btn active" onclick="setSensiType('MEDIA', this)">⏺️ MEDIA</div>
+                <div class="option-btn" onclick="setSensiType('ALTA', this)">⬆️ ALTA</div>
+            </div>
+
             <span class="label-title">🔍 INGRESA TU MODELO DE CELULAR</span>
-            <input type="text" id="deviceInput" class="input-box" placeholder="Ej: TCL, Samsung A54, POCO M5...">
+            <input type="text" id="deviceInput" class="input-box" placeholder="Ej: TCL, Samsung A54, POCO M5, iPhone 14...">
 
             <button class="btn-generate" onclick="generateSensi()">⚡ GENERAR SENSI VIP</button>
         </div>
@@ -250,9 +294,19 @@
             <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">85%</span></div>
             <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">580</span></div>
             <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">42% - 46%</span></div>
+
+            <!-- TIPS PROFESIONALES -->
+            <div class="tips-box">
+                <h4>💡 Tips Pro para esta Configuración:</h4>
+                <ul>
+                    <li><b>Levantamiento de mira:</b> Haz un movimiento seco y rápido hacia arriba justo al disparar.</li>
+                    <li><b>Limpieza de pantalla:</b> Mantén la pantalla limpia de grasa para evitar que el dedo se frene.</li>
+                    <li><b>Práctica:</b> Prueba primero en Modo Entreno para adaptarte al cambio de sensibilidad.</li>
+                </ul>
+            </div>
         </div>
 
-        <a href="index.html" class="back-link">← Volver al sitio principal de descargas</a>
+        <a href="https://github.com/FakeHack-10" target="_blank" class="back-link">← Ir al perfil principal / Repositorios</a>
     </div>
 
     <footer>
@@ -264,6 +318,7 @@
 
         let selectedMode = 'VIP';
         let selectedDpi = 'CON DPI';
+        let selectedSensiType = 'MEDIA';
 
         function setMode(mode, element) {
             selectedMode = mode;
@@ -280,6 +335,14 @@
             dpiRow.style.display = (type === 'SIN DPI') ? 'none' : 'flex';
         }
 
+        function setSensiType(type, element) {
+            selectedSensiType = type;
+            // Selecciona el contenedor de 3 opciones de sensi
+            let parentGrid = element.parentElement;
+            parentGrid.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+
         function generateSensi() {
             let device = document.getElementById('deviceInput').value.trim();
             let resultCard = document.getElementById('resultCard');
@@ -290,22 +353,46 @@
                 return;
             }
 
-            // Simulamos generación inteligente basada en texto ingresado
-            targetText.innerText = "📱 Dispositivo detectado: " + device.toUpperCase();
+            targetText.innerText = "📱 Dispositivo: " + device.toUpperCase() + " | Sensi: " + selectedSensiType;
 
-            // Generamos variaciones aleatorias pero precisas según el nombre para que parezca real
             let hash = 0;
             for (let i = 0; i < device.length; i++) {
                 hash += device.charCodeAt(i);
             }
 
-            document.getElementById('valGen').innerText = (90 + (hash % 10)) + '%';
-            document.getElementById('valRed').innerText = (88 + ((hash * 3) % 12)) + '%';
-            document.getElementById('val2x').innerText = (89 + ((hash * 5) % 11)) + '%';
-            document.getElementById('val4x').innerText = (91 + ((hash * 7) % 9)) + '%';
-            document.getElementById('valCam').innerText = (80 + (hash % 15)) + '%';
-            document.getElementById('valDpi').innerText = 500 + (hash % 150);
-            document.getElementById('valFire').innerText = (38 + (hash % 12)) + '% - ' + (43 + (hash % 10)) + '%';
+            // Ajustes base según el tipo de sensibilidad elegido (Baja, Media, Alta)
+            let baseGen = 75, baseRed = 70, base2x = 72, base4x = 74, baseDpi = 450, baseFire = 48;
+
+            if (selectedSensiType === 'BAJA') {
+                baseGen = 65 + (hash % 10);
+                baseRed = 60 + (hash % 10);
+                base2x = 62 + (hash % 10);
+                base4x = 63 + (hash % 10);
+                baseDpi = 410 + (hash % 50);
+                baseFire = 52;
+            } else if (selectedSensiType === 'MEDIA') {
+                baseGen = 85 + (hash % 8);
+                baseRed = 82 + (hash % 8);
+                base2x = 84 + (hash % 8);
+                base4x = 85 + (hash % 8);
+                baseDpi = 540 + (hash % 80);
+                baseFire = 45;
+            } else if (selectedSensiType === 'ALTA') {
+                baseGen = 95 + (hash % 5);
+                baseRed = 94 + (hash % 6);
+                base2x = 93 + (hash % 6);
+                base4x = 95 + (hash % 5);
+                baseDpi = 620 + (hash % 120);
+                baseFire = 38;
+            }
+
+            document.getElementById('valGen').innerText = baseGen + '%';
+            document.getElementById('valRed').innerText = baseRed + '%';
+            document.getElementById('val2x').innerText = base2x + '%';
+            document.getElementById('val4x').innerText = base4x + '%';
+            document.getElementById('valCam').innerText = (75 + (hash % 15)) + '%';
+            document.getElementById('valDpi').innerText = baseDpi;
+            document.getElementById('valFire').innerText = (baseFire - 3) + '% - ' + (baseFire + 4) + '%';
 
             resultCard.style.display = 'block';
             resultCard.scrollIntoView({ behavior: 'smooth' });
