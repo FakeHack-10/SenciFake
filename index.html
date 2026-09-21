@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAKEMODS - VIP SENSI GENERATOR</title>
+    <title>FAKEMODS - TRUE UNIQUE SENSI GENERATOR</title>
     <!-- FUENTES GAMER & TECH -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
 
         .main-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 900;
             background: linear-gradient(135deg, #ffffff 20%, var(--primary-glow) 60%, var(--secondary-glow) 100%);
             -webkit-background-clip: text;
@@ -66,13 +66,13 @@
         }
 
         .subtitle {
-            font-size: 13px;
-            color: #00f0ff;
+            font-size: 12px;
+            color: #00ff87;
             font-weight: 800;
             letter-spacing: 3px;
             margin-bottom: 20px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+            text-shadow: 0 0 10px rgba(0, 255, 135, 0.4);
         }
 
         .card {
@@ -86,7 +86,6 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
         }
 
-        /* PANTALLA DE CREDENCIALES */
         #authCard {
             text-align: center;
             margin-top: 30px;
@@ -143,13 +142,6 @@
             margin-top: 10px;
         }
 
-        .btn-auth:hover {
-            filter: brightness(1.2);
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
-        }
-
-        /* CONTENIDO PRINCIPAL */
         #mainAppContent {
             display: none;
         }
@@ -208,7 +200,6 @@
             color: #ffffff;
         }
 
-        /* GRILLAS DE OPCIONES */
         .options-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -234,10 +225,6 @@
             cursor: pointer;
             text-align: center;
             transition: all 0.2s ease;
-        }
-
-        .option-btn:active {
-            transform: scale(0.95);
         }
 
         .option-btn.active {
@@ -271,10 +258,9 @@
         .btn-generate:hover {
             transform: translateY(-2px);
             filter: brightness(1.15);
-            box-shadow: 0 0 30px rgba(0, 255, 135, 0.7);
         }
 
-        .btn-social {
+        .btn-social, .btn-whatsapp {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -282,71 +268,17 @@
             width: 100%;
             padding: 12px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #fe2c55, #25f4ee);
             color: #ffffff;
             font-weight: 900;
             font-size: 14px;
             text-decoration: none;
             margin-bottom: 10px;
-            box-shadow: 0 0 15px rgba(254, 44, 85, 0.3);
-            transition: all 0.25s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        .btn-social { background: linear-gradient(135deg, #fe2c55, #25f4ee); }
+        .btn-whatsapp { background: linear-gradient(135deg, #25d366, #128c7e); margin-bottom: 16px; }
 
-        .btn-social:hover {
-            filter: brightness(1.15);
-            transform: translateY(-2px);
-        }
-
-        .btn-whatsapp {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: #ffffff;
-            font-weight: 900;
-            font-size: 14px;
-            text-decoration: none;
-            margin-bottom: 16px;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
-            transition: all 0.25s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-whatsapp:hover {
-            filter: brightness(1.15);
-            transform: translateY(-2px);
-        }
-
-        .btn-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 11px;
-            border-radius: 10px;
-            background: rgba(112, 0, 255, 0.15);
-            color: #d8b4fe;
-            border: 1px solid rgba(167, 139, 250, 0.4);
-            font-weight: 800;
-            font-size: 13px;
-            cursor: pointer;
-            margin-bottom: 14px;
-            transition: all 0.25s ease;
-        }
-
-        .btn-info:hover {
-            background: rgba(112, 0, 255, 0.3);
-        }
-
-        /* RESULTADOS */
         .result-container {
             display: none;
             margin-top: 20px;
@@ -376,54 +308,6 @@
             font-weight: 900;
         }
 
-        /* MODAL */
-        .info-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .info-box {
-            background: #0d061f;
-            border: 2px solid var(--primary-glow);
-            border-radius: 18px;
-            padding: 24px;
-            max-width: 360px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-        }
-
-        .info-box h3 {
-            color: var(--primary-glow);
-            margin-bottom: 10px;
-            font-size: 18px;
-            font-weight: 900;
-        }
-
-        .info-box p {
-            color: #cbd5e1;
-            font-size: 13px;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .btn-close-modal {
-            background: linear-gradient(135deg, #ff007f, #9f1239);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-weight: 900;
-            cursor: pointer;
-        }
-
         .tips-box {
             background: rgba(10, 4, 22, 0.9);
             border: 1px dashed rgba(0, 240, 255, 0.4);
@@ -449,10 +333,6 @@
             line-height: 1.4;
         }
 
-        .tips-box li {
-            margin-bottom: 5px;
-        }
-
         footer {
             margin-top: 25px;
             font-size: 12px;
@@ -467,9 +347,8 @@
 
     <div class="container">
         <h1 class="main-title">FAKEMODS VIP</h1>
-        <span class="subtitle">⚡ ULTIMATE SENSI ENGINE ⚡</span>
+        <span class="subtitle">⚡ TRUE HASH SENSI ENGINE ⚡</span>
 
-        <!-- TARJETA DE ACCESO CON USUARIO Y CONTRASEÑA -->
         <div class="card" id="authCard">
             <span class="label-title" style="text-align: center; font-size: 14px; margin-bottom: 18px; color: var(--primary-glow);">🔒 ACCESO RESTRINGIDO VIP</span>
             
@@ -486,90 +365,53 @@
             <button class="btn-auth" onclick="verifyCredentials()">ACCEDER AL SISTEMA 🚀</button>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL DEL GENERADOR -->
         <div id="mainAppContent">
             <div class="card">
-                <a href="https://www.tiktok.com/@andresk1ng?_r=1&_t=ZS-99uJ7RMwf00" target="_blank" class="btn-social">
-                    🎵 Sígueme en TikTok (@andresk1ng)
-                </a>
+                <a href="https://www.tiktok.com/@andresk1ng?_r=1&_t=ZS-99uJ7RMwf00" target="_blank" class="btn-social">🎵 Sígueme en TikTok (@andresk1ng)</a>
+                <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn-whatsapp">💬 Únete al canal de WhatsApp</a>
 
-                <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn-whatsapp">
-                    💬 Únete al canal de WhatsApp
-                </a>
-
-                <span class="label-title">🎯 MODO DE INTELIGENCIA ARTIFICIAL</span>
-                <div class="options-grid-2" id="modeGrid">
-                    <div class="option-btn active" onclick="setMode('VIP PRO', this)">⚡ VIP IA PRO</div>
-                    <div class="option-btn" onclick="setMode('ULTRA PRECISE', this)">🎯 ULTRA PRECISE</div>
-                </div>
-
-                <span class="label-title">📱 CONFIGURACIÓN DE DPI</span>
-                <div class="options-grid-2" id="dpiGrid">
-                    <div class="option-btn active" onclick="setDpiType('CON DPI', this)">🔥 CON DPI OPTIMIZADO</div>
-                    <div class="option-btn" onclick="setDpiType('SIN DPI', this)">⚡ SIN DPI (DEFAULT)</div>
-                </div>
-
-                <span class="label-title">⚡ PERFIL DE SENSIBILIDAD</span>
+                <span class="label-title">🎯 PERFIL DE SENSIBILIDAD</span>
                 <div class="options-grid-3" id="sensiGrid">
                     <div class="option-btn" onclick="setSensiType('BAJA', this)">⬇️ BAJA STABLE</div>
                     <div class="option-btn active" onclick="setSensiType('MEDIA', this)">⏺️ BALANCED</div>
                     <div class="option-btn" onclick="setSensiType('ALTA', this)">⬆️ EXTREME FAST</div>
                 </div>
 
-                <span class="label-title">🎯 TIPO DE TAREAS / DISPARO</span>
+                <span class="label-title">🎯 TIPO DE DISPARO</span>
                 <div class="options-grid-3" id="shotGrid">
                     <div class="option-btn active" onclick="setShotType('TODO ROJO', this)">🔴 TODO ROJO</div>
                     <div class="option-btn" onclick="setShotType('BALANCEADO', this)">⚖️ BALANCED</div>
                     <div class="option-btn" onclick="setShotType('MOVIMIENTO', this)">💨 VELOZ</div>
                 </div>
 
-                <span class="label-title">🤖 ALGORITMO DE ASISTENCIA / IA DE PRECISIÓN</span>
-                <div class="options-grid-2" id="engineGrid">
-                    <div class="option-btn active" onclick="setEngine('Aimbot AI v4.2', this)">🧠 Aimbot AI v4.2</div>
-                    <div class="option-btn" onclick="setEngine('Anti-Recoil Pro', this)">🛡️ Anti-Recoil Pro</div>
-                    <div class="option-btn" onclick="setEngine('Headshot Lock VIP', this)">🎯 Headshot Lock VIP</div>
-                    <div class="option-btn" onclick="setEngine('Zero Delay Net', this)">⚡ Zero Delay Net</div>
-                </div>
-
-                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Escala Real 0-200)</span>
-                <input type="text" id="deviceSearchInput" class="search-box" placeholder="Busca tu marca o modelo..." oninput="filterDevices()" autocomplete="off">
+                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Matriz Dinámica por Hash)</span>
+                <input type="text" id="deviceSearchInput" class="search-box" placeholder="Escribe tu modelo exacto..." oninput="filterDevices()" autocomplete="off">
                 <div id="suggestionsList" class="suggestions-list"></div>
 
-                <button class="btn-info" onclick="openInfoModal()">ℹ️ ¿Cómo saber el nombre exacto de tu cel?</button>
-
-                <button class="btn-generate" onclick="generateSensi()">⚡ GENERAR CONFIGURACIÓN VIP</button>
+                <button class="btn-generate" onclick="generateUniqueSensi()">⚡ GENERAR SENSI ÚNICA 100% REAL</button>
             </div>
 
             <div class="card result-container" id="resultCard">
-                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CONFIGURACIÓN EXTREMA 0-200%</span>
+                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CALIBRACIÓN ÚNICA POR HARDWARE</span>
                 
                 <p id="targetDeviceText" style="font-size: 12px; color: #cbd5e1; margin-bottom: 12px; text-align: center; font-weight: 800;"></p>
 
-                <div class="sensi-row"><span>General:</span> <span class="sensi-value" id="valGen">195</span></div>
-                <div class="sensi-row"><span>Mira de Punto Rojo:</span> <span class="sensi-value" id="valRed">188</span></div>
-                <div class="sensi-row"><span>Mira 2X:</span> <span class="sensi-value" id="val2x">180</span></div>
-                <div class="sensi-row"><span>Mira 4X:</span> <span class="sensi-value" id="val4x">185</span></div>
-                <div class="sensi-row"><span>Mira AWM / Francotirador:</span> <span class="sensi-value" id="valAwm">95</span></div>
-                <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">150</span></div>
-                <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">720</span></div>
-                <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">38% - 42%</span></div>
+                <div class="sensi-row"><span>General:</span> <span class="sensi-value" id="valGen">00</span></div>
+                <div class="sensi-row"><span>Mira de Punto Rojo:</span> <span class="sensi-value" id="valRed">00</span></div>
+                <div class="sensi-row"><span>Mira 2X:</span> <span class="sensi-value" id="val2x">00</span></div>
+                <div class="sensi-row"><span>Mira 4X:</span> <span class="sensi-value" id="val4x">00</span></div>
+                <div class="sensi-row"><span>Mira AWM / Francotirador:</span> <span class="sensi-value" id="valAwm">00</span></div>
+                <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">00</span></div>
+                <div class="sensi-row"><span>DPI Personalizado:</span> <span class="sensi-value" id="valDpi">000</span></div>
+                <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">00%</span></div>
 
                 <div class="tips-box">
-                    <h4>💡 Tips de Rendimiento FAKEMODS:</h4>
+                    <h4>💡 Nota de Calibración Única:</h4>
                     <ul>
-                        <li><b>Rango Extremo:</b> Calibrado para la escala completa del juego. Si elegiste Sensi Alta, usa levantamientos cortos y rápidos.</li>
-                        <li><b>Precisión:</b> Mantén limpio tu protector de pantalla para evitar saltos táctiles indeseados.</li>
+                        <li><b>Algoritmo Hash:</b> Este resultado se calculó exclusivamente combinando las letras y caracteres del modelo introducido con el perfil seleccionado. Ningún otro teléfono dará estos mismos números exactos.</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="info-modal" id="infoModal">
-        <div class="info-box">
-            <h3>📱 GUÍA DE DISPOSITIVO</h3>
-            <p>Dirígete a <b>Ajustes ➔ Acerca del teléfono ➔ Nombre del dispositivo</b> para verificar que coincida exactamente con el de la lista.</p>
-            <button class="btn-close-modal" onclick="closeInfoModal()">¡Entendido!</button>
         </div>
     </div>
 
@@ -592,77 +434,38 @@
             }
         }
 
-        let selectedMode = 'VIP PRO';
-        let selectedDpi = 'CON DPI';
         let selectedSensiType = 'MEDIA';
         let selectedShotType = 'TODO ROJO';
-        let selectedEngine = 'Aimbot AI v4.2';
         let selectedDevice = '';
 
         const allDevices = [
             // Samsung
-            "Samsung Galaxy Z Fold 5", "Samsung Galaxy Z Flip 5", "Samsung Galaxy Z Fold 6", "Samsung Galaxy Z Flip 6",
-            "Samsung Galaxy M14", "Samsung Galaxy M34", "Samsung Galaxy M54", "Samsung Galaxy A21s", "Samsung Galaxy A31", "Samsung Galaxy A51", "Samsung Galaxy A71",
             "Samsung Galaxy A03", "Samsung Galaxy A04", "Samsung Galaxy A05", "Samsung Galaxy A05s",
             "Samsung Galaxy A13", "Samsung Galaxy A14", "Samsung Galaxy A15", "Samsung Galaxy A22",
             "Samsung Galaxy A23", "Samsung Galaxy A24", "Samsung Galaxy A25", "Samsung Galaxy A32",
-            "Samsung Galaxy A33", "Samsung Galaxy A34", "Samsung Galaxy A35", "Samsung Galaxy A52",
-            "Samsung Galaxy A53", "Samsung Galaxy A54", "Samsung Galaxy A55", "Samsung Galaxy A72", "Samsung Galaxy A73",
-            "Samsung Galaxy S20", "Samsung Galaxy S21", "Samsung Galaxy S22", "Samsung Galaxy S23", "Samsung Galaxy S23 Ultra",
-            "Samsung Galaxy S24", "Samsung Galaxy S24 Ultra", "Samsung Galaxy Note 10", "Samsung Galaxy Note 20",
-            "Samsung Galaxy J2 Prime", "Samsung Galaxy J4", "Samsung Galaxy J6", "Samsung Galaxy J7", "Samsung Galaxy J8",
+            "Samsung Galaxy A33", "Samsung Galaxy A34", "Samsung Galaxy A35", "Samsung Galaxy A51",
+            "Samsung Galaxy A52", "Samsung Galaxy A53", "Samsung Galaxy A54", "Samsung Galaxy A55", 
+            "Samsung Galaxy S21", "Samsung Galaxy S22", "Samsung Galaxy S23", "Samsung Galaxy S23 Ultra",
+            "Samsung Galaxy S24", "Samsung Galaxy S24 Ultra", "Samsung Galaxy J2 Prime", "Samsung Galaxy J6", "Samsung Galaxy J7",
             
             // Xiaomi / POCO / Redmi
-            "POCO X6", "POCO F6 Pro", "Redmi Note 12S", "Redmi Note 13 Pro+", "Xiaomi 13T", "Xiaomi 13T Pro", "Xiaomi 14 Ultra", "Redmi 12C", "Redmi 13", "Redmi Note 11S",
-            "POCO X3 Pro", "POCO X4 Pro", "POCO X5 Pro", "POCO X6 Pro", "POCO M3", "POCO M4 Pro",
-            "POCO M5", "POCO M6 Pro", "POCO F3", "POCO F4", "POCO F5", "POCO F6",
-            "Redmi Note 9", "Redmi Note 10", "Redmi Note 10 Pro", "Redmi Note 11", "Redmi Note 11 Pro",
-            "Redmi Note 12", "Redmi Note 12 Pro", "Redmi Note 13", "Redmi Note 13 Pro",
-            "Xiaomi 11", "Xiaomi 12", "Xiaomi 13", "Xiaomi 14", "Redmi 9", "Redmi 10", "Redmi 12", "Redmi 13C", "Redmi A1", "Redmi A2", "Redmi A3",
+            "POCO X3 Pro", "POCO X4 Pro", "POCO X5 Pro", "POCO X6 Pro", "POCO F3", "POCO F4", "POCO F5", "POCO F6 Pro",
+            "Redmi Note 9", "Redmi Note 10 Pro", "Redmi Note 11", "Redmi Note 11S", "Redmi Note 12", "Redmi Note 12 Pro",
+            "Redmi Note 13", "Redmi Note 13 Pro", "Redmi 9", "Redmi 10", "Redmi 12", "Redmi 13C", "Xiaomi 13T", "Xiaomi 14 Ultra",
 
             // Motorola
-            "Moto G55", "Moto G75", "Moto Edge 40 Neo", "Moto Edge 50 Pro", "Moto Edge 50 Ultra", "Moto G24 Power", "Moto G34", "Moto G54 5G",
-            "Moto E13", "Moto E20", "Moto E22", "Moto E32", "Moto G13", "Moto G14", "Moto G20",
-            "Moto G22", "Moto G23", "Moto G24", "Moto G30", "Moto G31", "Moto G32", "Moto G41",
-            "Moto G42", "Moto G50", "Moto G52", "Moto G53", "Moto G54", "Moto G60", "Moto G71",
-            "Moto G72", "Moto G82", "Moto G84", "Moto Edge 30", "Moto Edge 40", "Moto Edge 50",
+            "Moto E13", "Moto E22", "Moto G13", "Moto G14", "Moto G22", "Moto G24", "Moto G32", 
+            "Moto G52", "Moto G53", "Moto G54 5G", "Moto G72", "Moto G84", "Moto Edge 40", "Moto Edge 50 Pro",
 
             // Apple / iPhone
-            "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone SE (2022)",
-            "iPhone 7", "iPhone 8", "iPhone X", "iPhone XR", "iPhone 11", "iPhone 11 Pro",
-            "iPhone 11 Pro Max", "iPhone 12", "iPhone 12 mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
-            "iPhone 13", "iPhone 13 mini", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14",
-            "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max", "iPhone 15", "iPhone 15 Plus",
-            "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone SE",
+            "iPhone 7", "iPhone 8", "iPhone X", "iPhone XR", "iPhone 11", "iPhone 12", "iPhone 12 Pro Max",
+            "iPhone 13", "iPhone 13 Pro", "iPhone 14", "iPhone 14 Pro Max", "iPhone 15", "iPhone 15 Pro Max", "iPhone 16 Pro",
 
-            // Infinix y Tecno
-            "Infinix Hot 40 Pro", "Infinix Zero 40", "Tecno Pova 6 Pro 5G", "Tecno Spark 20 Pro+", "Tecno Camon 30 Pro",
-            "Infinix Hot 10", "Infinix Hot 11", "Infinix Hot 12", "Infinix Hot 30", "Infinix Hot 40",
-            "Infinix Note 10", "Infinix Note 11", "Infinix Note 12", "Infinix Note 30", "Infinix Note 40 Pro",
-            "Infinix Smart 6", "Infinix Smart 7", "Infinix Smart 8", "Infinix Zero 20", "Infinix Zero 30 Ultra",
-            "Tecno Spark 8", "Tecno Spark 9", "Tecno Spark 10", "Tecno Spark 20 Pro",
-            "Tecno Pova 4", "Tecno Pova 5", "Tecno Pova 6 Pro", "Tecno Camon 18", "Tecno Camon 19", "Tecno Camon 20", "Tecno Camon 30 Premier",
-
-            // Gaming Pro
-            "Nubia RedMagic 9S Pro", "Black Shark 5 Pro", "Black Shark 4", "Asus ROG Phone 8 Pro", "Lenovo Legion Phone Duel",
-
-            // Realme, Oppo, Vivo, Huawei, etc.
-            "Realme C11", "Realme C21", "Realme C25", "Realme C30", "Realme C33", "Realme C53",
-            "Realme C55", "Realme C67", "Realme 8", "Realme 9", "Realme 10", "Realme 11", "Realme 12 Pro",
-            "Realme GT Master", "Realme GT Neo 3", "Realme GT 5",
-            "Oppo A16", "Oppo A17", "Oppo A18", "Oppo A38", "Oppo A57", "Oppo A58", "Oppo A78", "Oppo A79",
-            "Oppo Reno 5", "Oppo Reno 6", "Oppo Reno 7", "Oppo Reno 8", "Oppo Reno 10", "Oppo Reno 11 Pro", "Oppo Find X5",
-            "Vivo Y01", "Vivo Y02", "Vivo Y11", "Vivo Y12", "Vivo Y15", "Vivo Y21", "Vivo Y22",
-            "Vivo Y27", "Vivo Y35", "Vivo Y36", "Vivo V21", "Vivo V23", "Vivo V25", "Vivo V27",
-            "Vivo V29", "Vivo V30", "Vivo X80", "Vivo X90", "Vivo X100",
-            "Huawei Y5p", "Huawei Y6p", "Huawei Y7a", "Huawei Y9a", "Huawei Nova 8", "Huawei Nova 9",
-            "Huawei Nova 10", "Huawei Nova 11", "Huawei P30", "Huawei P40", "Huawei P50 Pro", "Huawei P60 Pro",
-            "Honor X6", "Honor X7", "Honor X8", "Honor X9", "Honor 50", "Honor 70", "Honor 90",
-            "ZTE Blade A31", "ZTE Blade A51", "ZTE Blade A52", "ZTE Blade A71", "ZTE Blade A72", "ZTE Blade A73", "ZTE Blade V30", "ZTE Blade V40", "ZTE Blade V50 Smart",
-            "OnePlus Nord N10", "OnePlus Nord N20", "OnePlus Nord N30", "OnePlus 8", "OnePlus 9", "OnePlus 10 Pro", "OnePlus 11", "OnePlus 12",
-            "Asus ROG Phone 5", "Asus ROG Phone 6", "Asus ROG Phone 7", "Asus Zenfone 9", "Asus Zenfone 10",
-            "Lenovo K13", "Lenovo K14", "TCL 20 SE", "TCL 30 SE", "TCL 40 SE", "TCL 40 NXTPAPER",
-            "Otro Dispositivo / Genérico Android"
+            // Infinix, Tecno y otros
+            "Infinix Hot 12", "Infinix Hot 30", "Infinix Hot 40 Pro", "Infinix Note 30", "Infinix Note 40 Pro",
+            "Tecno Spark 10", "Tecno Spark 20 Pro", "Tecno Pova 5", "Tecno Pova 6 Pro", "Tecno Camon 20",
+            "Realme C53", "Realme C55", "Realme 10", "Realme 11", "Oppo A18", "Oppo A38", "Oppo Reno 10",
+            "Nubia RedMagic 9S Pro", "Asus ROG Phone 8 Pro", "TCL 40 SE", "Otro Dispositivo / Genérico Android"
         ];
 
         function filterDevices() {
@@ -671,14 +474,12 @@
             let listContainer = document.getElementById('suggestionsList');
             
             listContainer.innerHTML = '';
-
             if (filter.length === 0) {
                 listContainer.style.display = 'none';
                 return;
             }
 
             let matches = allDevices.filter(device => device.toLowerCase().includes(filter));
-
             if (matches.length > 0) {
                 listContainer.style.display = 'block';
                 matches.forEach(device => {
@@ -697,23 +498,6 @@
             }
         }
 
-        function setMode(mode, element) {
-            selectedMode = mode;
-            let container = document.getElementById('modeGrid');
-            container.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-        }
-
-        function setDpiType(type, element) {
-            selectedDpi = type;
-            let container = document.getElementById('dpiGrid');
-            container.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-            
-            let dpiRow = document.getElementById('dpiRow');
-            dpiRow.style.display = (type === 'SIN DPI') ? 'none' : 'flex';
-        }
-
         function setSensiType(type, element) {
             selectedSensiType = type;
             let container = document.getElementById('sensiGrid');
@@ -728,113 +512,78 @@
             element.classList.add('active');
         }
 
-        function setEngine(engine, element) {
-            selectedEngine = engine;
-            let container = document.getElementById('engineGrid');
-            container.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+        // MOTOR MATEMÁTICO DE HASH: Convierte cualquier texto en una semilla numérica única
+        function getStringHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash << 5) - hash + str.charCodeAt(i);
+                hash |= 0; // Convertir a entero de 32 bits
+            }
+            return Math.abs(hash);
         }
 
-        function openInfoModal() {
-            document.getElementById('infoModal').style.display = 'flex';
-        }
-
-        function closeInfoModal() {
-            document.getElementById('infoModal').style.display = 'none';
-        }
-
-        function generateSensi() {
+        function generateUniqueSensi() {
             let inputVal = document.getElementById('deviceSearchInput').value.trim();
             let resultCard = document.getElementById('resultCard');
             let targetText = document.getElementById('targetDeviceText');
 
             if (inputVal === "") {
-                alert("Por favor escribe o selecciona tu modelo de celular en el buscador.");
+                alert("Por favor escribe o selecciona tu modelo de celular.");
                 return;
             }
 
             selectedDevice = inputVal;
-            targetText.innerText = "📱 " + selectedDevice + " | IA: " + selectedMode + " | Motor: " + selectedEngine;
+            targetText.innerText = "📱 " + selectedDevice + " | Perfil: " + selectedSensiType;
 
-            let devLower = selectedDevice.toLowerCase();
+            // Generar semilla única basada en el nombre exacto del dispositivo
+            let baseHash = getStringHash(selectedDevice.toLowerCase());
 
-            // MATRIZ DE BASE ALTA (ESCALA 0 A 200)
-            let gen = 160, red = 150, x2 = 145, x4 = 150, awm = 80, cam = 130, dpi = 580, fire = 44;
+            // Extraer factores pseudoaleatorios deterministas únicos para cada valor
+            let seedGen = (baseHash % 55) + 130;  // Rango 130 - 185 base
+            let seedRed = ((baseHash >> 2) % 52) + 128;
+            let seed2x  = ((baseHash >> 4) % 48) + 120;
+            let seed4x  = ((baseHash >> 3) % 50) + 125;
+            let seedAwm = ((baseHash >> 5) % 35) + 65;
+            let seedCam = ((baseHash >> 6) % 45) + 105;
+            let seedDpi = ((baseHash >> 1) % 280) + 510; // Rango DPI 510 - 790
+            let seedFire = ((baseHash >> 7) % 18) + 33;  // Rango Botón 33% - 50%
 
-            if (devLower.includes('samsung')) {
-                if (devLower.includes('ultra') || devLower.includes('fold') || devLower.includes('s23') || devLower.includes('s24')) {
-                    gen = 192; red = 185; x2 = 178; x4 = 184; awm = 92; cam = 148; dpi = 680; fire = 38;
-                } else if (devLower.includes('a5') || devLower.includes('a3') || devLower.includes('m3') || devLower.includes('m5')) {
-                    gen = 174; red = 165; x2 = 158; x4 = 164; awm = 85; cam = 135; dpi = 610; fire = 42;
-                } else { // Gama baja / entrada
-                    gen = 140; red = 130; x2 = 125; x4 = 132; awm = 70; cam = 110; dpi = 520; fire = 50;
-                }
-            } else if (devLower.includes('poco') || devLower.includes('redmi') || devLower.includes('xiaomi')) {
-                if (devLower.includes('f6') || devLower.includes('f5') || devLower.includes('x6') || devLower.includes('14 ultra') || devLower.includes('13t')) {
-                    gen = 198; red = 194; x2 = 188; x4 = 192; awm = 98; cam = 155; dpi = 740; fire = 35;
-                } else if (devLower.includes('pro')) {
-                    gen = 182; red = 175; x2 = 168; x4 = 174; awm = 88; cam = 140; dpi = 640; fire = 40;
-                } else { // Redmi entrada
-                    gen = 145; red = 135; x2 = 130; x4 = 138; awm = 72; cam = 115; dpi = 540; fire = 48;
-                }
-            } else if (devLower.includes('iphone')) {
-                if (devLower.includes('15') || devLower.includes('16')) {
-                    gen = 200; red = 196; x2 = 190; x4 = 195; awm = 100; cam = 160; dpi = 620; fire = 34;
-                } else if (devLower.includes('13') || devLower.includes('14')) {
-                    gen = 188; red = 180; x2 = 175; x4 = 180; awm = 90; cam = 145; dpi = 590; fire = 39;
-                } else { // iPhone antiguos
-                    gen = 165; red = 155; x2 = 150; x4 = 155; awm = 80; cam = 125; dpi = 550; fire = 43;
-                }
-            } else if (devLower.includes('moto')) {
-                if (devLower.includes('edge') || devLower.includes('g75') || devLower.includes('g84')) {
-                    gen = 178; red = 170; x2 = 162; x4 = 168; awm = 84; cam = 138; dpi = 620; fire = 41;
-                } else { // Moto G normal
-                    gen = 152; red = 144; x2 = 138; x4 = 145; awm = 75; cam = 120; dpi = 550; fire = 46;
-                }
-            } else if (devLower.includes('infinix') || devLower.includes('tecno')) {
-                if (devLower.includes('pro') || devLower.includes('pova') || devLower.includes('zero')) {
-                    gen = 180; red = 172; x2 = 165; x4 = 170; awm = 86; cam = 140; dpi = 660; fire = 39;
-                } else { // Smart / Spark
-                    gen = 135; red = 125; x2 = 120; x4 = 128; awm = 68; cam = 105; dpi = 500; fire = 52;
-                }
-            } else if (devLower.includes('redmagic') || devLower.includes('black shark') || devLower.includes('rog phone')) {
-                gen = 200; red = 200; x2 = 195; x4 = 200; awm = 110; cam = 170; dpi = 780; fire = 32;
-            } else { // Genérico
-                gen = 160; red = 150; x2 = 145; x4 = 150; awm = 80; cam = 130; dpi = 580; fire = 44;
-            }
-
-            // MODIFICADORES CRÍTICOS SEGÚN EL PERFIL DE SENSIBILIDAD SELECCIONADO
+            // Modificadores según el Perfil de Sensibilidad
             if (selectedSensiType === 'BAJA') {
-                gen -= 40; red -= 45; x2 -= 35; x4 -= 40; awm -= 20; dpi -= 90; fire += 8;
+                seedGen -= 25; seedRed -= 28; seed2x -= 22; seed4x -= 25; seedDpi -= 70; seedFire += 6;
             } else if (selectedSensiType === 'ALTA') {
-                gen += 22; red += 25; x2 += 22; x4 += 24; awm += 15; dpi += 80; fire -= 6;
+                seedGen += 22; seedRed += 24; seed2x += 20; seed4x += 22; seedDpi += 80; seedFire -= 5;
             }
 
+            // Modificadores según el Tipo de Disparo
             if (selectedShotType === 'TODO ROJO') {
-                red += 12;
-                gen += 5;
+                seedRed += 8;
+                seedGen += 4;
             } else if (selectedShotType === 'VELOZ') {
-                gen += 15;
-                x4 += 8;
+                seedGen += 10;
+                seed4x += 6;
             }
 
-            // LÍMITES REALES DEL JUEGO (MÁXIMO 200 Y MÍNIMO 50)
-            gen = Math.min(200, Math.max(50, gen));
-            red = Math.min(200, Math.max(50, red));
-            x2 = Math.min(200, Math.max(50, x2));
-            x4 = Math.min(200, Math.max(50, x4));
-            awm = Math.min(150, Math.max(20, awm));
-            cam = Math.min(200, Math.max(60, cam));
+            // Ajustar límites estrictos dentro de la escala real del juego (50 - 200)
+            let finalGen = Math.min(200, Math.max(50, seedGen));
+            let finalRed = Math.min(200, Math.max(50, seedRed));
+            let final2x  = Math.min(200, Math.max(50, seed2x));
+            let final4x  = Math.min(200, Math.max(50, seed4x));
+            let finalAwm = Math.min(140, Math.max(25, seedAwm));
+            let finalCam = Math.min(200, Math.max(60, seedCam));
+            let finalDpi = Math.min(850, Math.max(480, seedDpi));
+            let fireMin  = Math.max(28, seedFire - 2);
+            let fireMax  = Math.min(55, seedFire + 3);
 
-            // IMPRIMIR EN PANTALLA
-            document.getElementById('valGen').innerText = gen;
-            document.getElementById('valRed').innerText = red;
-            document.getElementById('val2x').innerText = x2;
-            document.getElementById('val4x').innerText = x4;
-            document.getElementById('valAwm').innerText = awm;
-            document.getElementById('valCam').innerText = cam;
-            document.getElementById('valDpi').innerText = dpi;
-            document.getElementById('valFire').innerText = (fire - 3) + '% - ' + (fire + 4) + '%';
+            // Mostrar resultados en pantalla
+            document.getElementById('valGen').innerText = finalGen;
+            document.getElementById('valRed').innerText = finalRed;
+            document.getElementById('val2x').innerText = final2x;
+            document.getElementById('val4x').innerText = final4x;
+            document.getElementById('valAwm').innerText = finalAwm;
+            document.getElementById('valCam').innerText = finalCam;
+            document.getElementById('valDpi').innerText = finalDpi;
+            document.getElementById('valFire').innerText = fireMin + '% - ' + fireMax + '%';
 
             resultCard.style.display = 'block';
             resultCard.scrollIntoView({ behavior: 'smooth' });
