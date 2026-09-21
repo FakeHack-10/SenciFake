@@ -531,7 +531,7 @@
                     <div class="option-btn" onclick="setEngine('Zero Delay Net', this)">⚡ Zero Delay Net</div>
                 </div>
 
-                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Hardware Real)</span>
+                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Escala Real 0-200)</span>
                 <input type="text" id="deviceSearchInput" class="search-box" placeholder="Busca tu marca o modelo..." oninput="filterDevices()" autocomplete="off">
                 <div id="suggestionsList" class="suggestions-list"></div>
 
@@ -541,24 +541,24 @@
             </div>
 
             <div class="card result-container" id="resultCard">
-                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CONFIGURACIÓN AJUSTADA AL HARDWARE</span>
+                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CONFIGURACIÓN EXTREMA 0-200%</span>
                 
                 <p id="targetDeviceText" style="font-size: 12px; color: #cbd5e1; margin-bottom: 12px; text-align: center; font-weight: 800;"></p>
 
-                <div class="sensi-row"><span>General:</span> <span class="sensi-value" id="valGen">98%</span></div>
-                <div class="sensi-row"><span>Mira de Punto Rojo:</span> <span class="sensi-value" id="valRed">95%</span></div>
-                <div class="sensi-row"><span>Mira 2X:</span> <span class="sensi-value" id="val2x">94%</span></div>
-                <div class="sensi-row"><span>Mira 4X:</span> <span class="sensi-value" id="val4x">96%</span></div>
-                <div class="sensi-row"><span>Mira AWM / Francotirador:</span> <span class="sensi-value" id="valAwm">55%</span></div>
-                <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">85%</span></div>
-                <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">580</span></div>
-                <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">42% - 46%</span></div>
+                <div class="sensi-row"><span>General:</span> <span class="sensi-value" id="valGen">195</span></div>
+                <div class="sensi-row"><span>Mira de Punto Rojo:</span> <span class="sensi-value" id="valRed">188</span></div>
+                <div class="sensi-row"><span>Mira 2X:</span> <span class="sensi-value" id="val2x">180</span></div>
+                <div class="sensi-row"><span>Mira 4X:</span> <span class="sensi-value" id="val4x">185</span></div>
+                <div class="sensi-row"><span>Mira AWM / Francotirador:</span> <span class="sensi-value" id="valAwm">95</span></div>
+                <div class="sensi-row"><span>Cámara / Free Look:</span> <span class="sensi-value" id="valCam">150</span></div>
+                <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">720</span></div>
+                <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">38% - 42%</span></div>
 
                 <div class="tips-box">
                     <h4>💡 Tips de Rendimiento FAKEMODS:</h4>
                     <ul>
-                        <li><b>Ajuste de Hardware:</b> Valores calibrados específicamente para la respuesta táctil de tu marca.</li>
-                        <li><b>Técnica:</b> Arrastre vertical rápido acompañando el botón de disparo.</li>
+                        <li><b>Rango Extremo:</b> Calibrado para la escala completa del juego. Si elegiste Sensi Alta, usa levantamientos cortos y rápidos.</li>
+                        <li><b>Precisión:</b> Mantén limpio tu protector de pantalla para evitar saltos táctiles indeseados.</li>
                     </ul>
                 </div>
             </div>
@@ -758,83 +758,83 @@
 
             let devLower = selectedDevice.toLowerCase();
 
-            // BASE DE DATOS DE HARDWARE REAL PARA CADA MARCA/GAMA
-            let gen = 85, red = 82, x2 = 80, x4 = 83, awm = 50, cam = 78, dpi = 540, fire = 45;
+            // MATRIZ DE BASE ALTA (ESCALA 0 A 200)
+            let gen = 160, red = 150, x2 = 145, x4 = 150, awm = 80, cam = 130, dpi = 580, fire = 44;
 
             if (devLower.includes('samsung')) {
                 if (devLower.includes('ultra') || devLower.includes('fold') || devLower.includes('s23') || devLower.includes('s24')) {
-                    gen = 96; red = 94; x2 = 92; x4 = 95; awm = 58; cam = 86; dpi = 610; fire = 40;
+                    gen = 192; red = 185; x2 = 178; x4 = 184; awm = 92; cam = 148; dpi = 680; fire = 38;
                 } else if (devLower.includes('a5') || devLower.includes('a3') || devLower.includes('m3') || devLower.includes('m5')) {
-                    gen = 89; red = 86; x2 = 85; x4 = 88; awm = 52; cam = 82; dpi = 560; fire = 43;
-                } else { // Gama baja / J series / A0x
-                    gen = 76; red = 72; x2 = 70; x4 = 74; awm = 44; cam = 70; dpi = 480; fire = 51;
+                    gen = 174; red = 165; x2 = 158; x4 = 164; awm = 85; cam = 135; dpi = 610; fire = 42;
+                } else { // Gama baja / entrada
+                    gen = 140; red = 130; x2 = 125; x4 = 132; awm = 70; cam = 110; dpi = 520; fire = 50;
                 }
             } else if (devLower.includes('poco') || devLower.includes('redmi') || devLower.includes('xiaomi')) {
                 if (devLower.includes('f6') || devLower.includes('f5') || devLower.includes('x6') || devLower.includes('14 ultra') || devLower.includes('13t')) {
-                    gen = 98; red = 97; x2 = 95; x4 = 98; awm = 60; cam = 88; dpi = 640; fire = 38;
+                    gen = 198; red = 194; x2 = 188; x4 = 192; awm = 98; cam = 155; dpi = 740; fire = 35;
                 } else if (devLower.includes('pro')) {
-                    gen = 92; red = 90; x2 = 88; x4 = 91; awm = 55; cam = 84; dpi = 590; fire = 42;
-                } else { // Redmi entrada / 12C / A1
-                    gen = 78; red = 74; x2 = 72; x4 = 76; awm = 45; cam = 72; dpi = 500; fire = 49;
+                    gen = 182; red = 175; x2 = 168; x4 = 174; awm = 88; cam = 140; dpi = 640; fire = 40;
+                } else { // Redmi entrada
+                    gen = 145; red = 135; x2 = 130; x4 = 138; awm = 72; cam = 115; dpi = 540; fire = 48;
                 }
             } else if (devLower.includes('iphone')) {
                 if (devLower.includes('15') || devLower.includes('16')) {
-                    gen = 99; red = 98; x2 = 96; x4 = 99; awm = 65; cam = 90; dpi = 580; fire = 37;
+                    gen = 200; red = 196; x2 = 190; x4 = 195; awm = 100; cam = 160; dpi = 620; fire = 34;
                 } else if (devLower.includes('13') || devLower.includes('14')) {
-                    gen = 95; red = 93; x2 = 91; x4 = 94; awm = 56; cam = 85; dpi = 560; fire = 41;
-                } else { // iPhone antiguos (7, 8, X, 11)
-                    gen = 88; red = 85; x2 = 83; x4 = 86; awm = 50; cam = 80; dpi = 530; fire = 44;
+                    gen = 188; red = 180; x2 = 175; x4 = 180; awm = 90; cam = 145; dpi = 590; fire = 39;
+                } else { // iPhone antiguos
+                    gen = 165; red = 155; x2 = 150; x4 = 155; awm = 80; cam = 125; dpi = 550; fire = 43;
                 }
             } else if (devLower.includes('moto')) {
                 if (devLower.includes('edge') || devLower.includes('g75') || devLower.includes('g84')) {
-                    gen = 91; red = 88; x2 = 86; x4 = 89; awm = 53; cam = 82; dpi = 570; fire = 43;
-                } else { // Moto G normal / E series
-                    gen = 82; red = 78; x2 = 76; x4 = 80; awm = 48; cam = 75; dpi = 510; fire = 47;
+                    gen = 178; red = 170; x2 = 162; x4 = 168; awm = 84; cam = 138; dpi = 620; fire = 41;
+                } else { // Moto G normal
+                    gen = 152; red = 144; x2 = 138; x4 = 145; awm = 75; cam = 120; dpi = 550; fire = 46;
                 }
             } else if (devLower.includes('infinix') || devLower.includes('tecno')) {
                 if (devLower.includes('pro') || devLower.includes('pova') || devLower.includes('zero')) {
-                    gen = 93; red = 91; x2 = 89; x4 = 92; awm = 54; cam = 83; dpi = 600; fire = 41;
-                } else { // Smart / Spark básicos
-                    gen = 74; red = 70; x2 = 68; x4 = 72; awm = 42; cam = 68; dpi = 460; fire = 52;
+                    gen = 180; red = 172; x2 = 165; x4 = 170; awm = 86; cam = 140; dpi = 660; fire = 39;
+                } else { // Smart / Spark
+                    gen = 135; red = 125; x2 = 120; x4 = 128; awm = 68; cam = 105; dpi = 500; fire = 52;
                 }
             } else if (devLower.includes('redmagic') || devLower.includes('black shark') || devLower.includes('rog phone')) {
-                gen = 100; red = 99; x2 = 98; x4 = 100; awm = 70; cam = 92; dpi = 720; fire = 35;
-            } else { // Dispositivos genéricos u otras marcas
-                gen = 85; red = 82; x2 = 80; x4 = 83; awm = 50; cam = 78; dpi = 540; fire = 45;
+                gen = 200; red = 200; x2 = 195; x4 = 200; awm = 110; cam = 170; dpi = 780; fire = 32;
+            } else { // Genérico
+                gen = 160; red = 150; x2 = 145; x4 = 150; awm = 80; cam = 130; dpi = 580; fire = 44;
             }
 
-            // MODIFICADORES SEGÚN LOS BOTONES SELECCIONADOS POR EL USUARIO
+            // MODIFICADORES CRÍTICOS SEGÚN EL PERFIL DE SENSIBILIDAD SELECCIONADO
             if (selectedSensiType === 'BAJA') {
-                gen -= 12; red -= 14; x2 -= 12; x4 -= 13; dpi -= 80; fire += 6;
+                gen -= 40; red -= 45; x2 -= 35; x4 -= 40; awm -= 20; dpi -= 90; fire += 8;
             } else if (selectedSensiType === 'ALTA') {
-                gen += 6; red += 6; x2 += 6; x4 += 5; dpi += 60; fire -= 4;
+                gen += 22; red += 25; x2 += 22; x4 += 24; awm += 15; dpi += 80; fire -= 6;
             }
 
             if (selectedShotType === 'TODO ROJO') {
-                red += 3;
-                gen += 1;
+                red += 12;
+                gen += 5;
             } else if (selectedShotType === 'VELOZ') {
-                gen += 4;
-                x4 += 2;
+                gen += 15;
+                x4 += 8;
             }
 
-            // LÍMITES DE SEGURIDAD (MÁXIMO 100% Y MÍNIMO 40%)
-            gen = Math.min(100, Math.max(40, gen));
-            red = Math.min(100, Math.max(40, red));
-            x2 = Math.min(100, Math.max(40, x2));
-            x4 = Math.min(100, Math.max(40, x4));
-            awm = Math.min(100, Math.max(30, awm));
-            cam = Math.min(100, Math.max(50, cam));
+            // LÍMITES REALES DEL JUEGO (MÁXIMO 200 Y MÍNIMO 50)
+            gen = Math.min(200, Math.max(50, gen));
+            red = Math.min(200, Math.max(50, red));
+            x2 = Math.min(200, Math.max(50, x2));
+            x4 = Math.min(200, Math.max(50, x4));
+            awm = Math.min(150, Math.max(20, awm));
+            cam = Math.min(200, Math.max(60, cam));
 
-            // MOSTRAR RESULTADOS EN PANTALLA
-            document.getElementById('valGen').innerText = gen + '%';
-            document.getElementById('valRed').innerText = red + '%';
-            document.getElementById('val2x').innerText = x2 + '%';
-            document.getElementById('val4x').innerText = x4 + '%';
-            document.getElementById('valAwm').innerText = awm + '%';
-            document.getElementById('valCam').innerText = cam + '%';
+            // IMPRIMIR EN PANTALLA
+            document.getElementById('valGen').innerText = gen;
+            document.getElementById('valRed').innerText = red;
+            document.getElementById('val2x').innerText = x2;
+            document.getElementById('val4x').innerText = x4;
+            document.getElementById('valAwm').innerText = awm;
+            document.getElementById('valCam').innerText = cam;
             document.getElementById('valDpi').innerText = dpi;
-            document.getElementById('valFire').innerText = (fire - 2) + '% - ' + (fire + 3) + '%';
+            document.getElementById('valFire').innerText = (fire - 3) + '% - ' + (fire + 4) + '%';
 
             resultCard.style.display = 'block';
             resultCard.scrollIntoView({ behavior: 'smooth' });
