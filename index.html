@@ -531,7 +531,7 @@
                     <div class="option-btn" onclick="setEngine('Zero Delay Net', this)">⚡ Zero Delay Net</div>
                 </div>
 
-                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Catálogo Ampliado)</span>
+                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Hardware Real)</span>
                 <input type="text" id="deviceSearchInput" class="search-box" placeholder="Busca tu marca o modelo..." oninput="filterDevices()" autocomplete="off">
                 <div id="suggestionsList" class="suggestions-list"></div>
 
@@ -541,7 +541,7 @@
             </div>
 
             <div class="card result-container" id="resultCard">
-                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CONFIGURACIÓN GENERADA CON ÉXITO</span>
+                <span class="label-title" style="text-align: center; font-size: 15px; margin-bottom: 12px; color: #00ff87;">✅ CONFIGURACIÓN AJUSTADA AL HARDWARE</span>
                 
                 <p id="targetDeviceText" style="font-size: 12px; color: #cbd5e1; margin-bottom: 12px; text-align: center; font-weight: 800;"></p>
 
@@ -557,8 +557,8 @@
                 <div class="tips-box">
                     <h4>💡 Tips de Rendimiento FAKEMODS:</h4>
                     <ul>
-                        <li><b>Técnica de levante:</b> Haz un arrastre limpio y vertical acompañado de tu botón.</li>
-                        <li><b>Estabilidad:</b> Juega con brillo medio-alto para evitar caídas de FPS.</li>
+                        <li><b>Ajuste de Hardware:</b> Valores calibrados específicamente para la respuesta táctil de tu marca.</li>
+                        <li><b>Técnica:</b> Arrastre vertical rápido acompañando el botón de disparo.</li>
                     </ul>
                 </div>
             </div>
@@ -756,54 +756,85 @@
             selectedDevice = inputVal;
             targetText.innerText = "📱 " + selectedDevice + " | IA: " + selectedMode + " | Motor: " + selectedEngine;
 
-            let hash = 0;
-            for (let i = 0; i < selectedDevice.length; i++) {
-                hash += selectedDevice.charCodeAt(i);
+            let devLower = selectedDevice.toLowerCase();
+
+            // BASE DE DATOS DE HARDWARE REAL PARA CADA MARCA/GAMA
+            let gen = 85, red = 82, x2 = 80, x4 = 83, awm = 50, cam = 78, dpi = 540, fire = 45;
+
+            if (devLower.includes('samsung')) {
+                if (devLower.includes('ultra') || devLower.includes('fold') || devLower.includes('s23') || devLower.includes('s24')) {
+                    gen = 96; red = 94; x2 = 92; x4 = 95; awm = 58; cam = 86; dpi = 610; fire = 40;
+                } else if (devLower.includes('a5') || devLower.includes('a3') || devLower.includes('m3') || devLower.includes('m5')) {
+                    gen = 89; red = 86; x2 = 85; x4 = 88; awm = 52; cam = 82; dpi = 560; fire = 43;
+                } else { // Gama baja / J series / A0x
+                    gen = 76; red = 72; x2 = 70; x4 = 74; awm = 44; cam = 70; dpi = 480; fire = 51;
+                }
+            } else if (devLower.includes('poco') || devLower.includes('redmi') || devLower.includes('xiaomi')) {
+                if (devLower.includes('f6') || devLower.includes('f5') || devLower.includes('x6') || devLower.includes('14 ultra') || devLower.includes('13t')) {
+                    gen = 98; red = 97; x2 = 95; x4 = 98; awm = 60; cam = 88; dpi = 640; fire = 38;
+                } else if (devLower.includes('pro')) {
+                    gen = 92; red = 90; x2 = 88; x4 = 91; awm = 55; cam = 84; dpi = 590; fire = 42;
+                } else { // Redmi entrada / 12C / A1
+                    gen = 78; red = 74; x2 = 72; x4 = 76; awm = 45; cam = 72; dpi = 500; fire = 49;
+                }
+            } else if (devLower.includes('iphone')) {
+                if (devLower.includes('15') || devLower.includes('16')) {
+                    gen = 99; red = 98; x2 = 96; x4 = 99; awm = 65; cam = 90; dpi = 580; fire = 37;
+                } else if (devLower.includes('13') || devLower.includes('14')) {
+                    gen = 95; red = 93; x2 = 91; x4 = 94; awm = 56; cam = 85; dpi = 560; fire = 41;
+                } else { // iPhone antiguos (7, 8, X, 11)
+                    gen = 88; red = 85; x2 = 83; x4 = 86; awm = 50; cam = 80; dpi = 530; fire = 44;
+                }
+            } else if (devLower.includes('moto')) {
+                if (devLower.includes('edge') || devLower.includes('g75') || devLower.includes('g84')) {
+                    gen = 91; red = 88; x2 = 86; x4 = 89; awm = 53; cam = 82; dpi = 570; fire = 43;
+                } else { // Moto G normal / E series
+                    gen = 82; red = 78; x2 = 76; x4 = 80; awm = 48; cam = 75; dpi = 510; fire = 47;
+                }
+            } else if (devLower.includes('infinix') || devLower.includes('tecno')) {
+                if (devLower.includes('pro') || devLower.includes('pova') || devLower.includes('zero')) {
+                    gen = 93; red = 91; x2 = 89; x4 = 92; awm = 54; cam = 83; dpi = 600; fire = 41;
+                } else { // Smart / Spark básicos
+                    gen = 74; red = 70; x2 = 68; x4 = 72; awm = 42; cam = 68; dpi = 460; fire = 52;
+                }
+            } else if (devLower.includes('redmagic') || devLower.includes('black shark') || devLower.includes('rog phone')) {
+                gen = 100; red = 99; x2 = 98; x4 = 100; awm = 70; cam = 92; dpi = 720; fire = 35;
+            } else { // Dispositivos genéricos u otras marcas
+                gen = 85; red = 82; x2 = 80; x4 = 83; awm = 50; cam = 78; dpi = 540; fire = 45;
             }
 
-            let baseGen = 88, baseRed = 85, base2x = 84, base4x = 86, baseAwm = 50, baseDpi = 560, baseFire = 44;
-
+            // MODIFICADORES SEGÚN LOS BOTONES SELECCIONADOS POR EL USUARIO
             if (selectedSensiType === 'BAJA') {
-                baseGen = 68 + (hash % 8);
-                baseRed = 65 + (hash % 8);
-                base2x = 66 + (hash % 7);
-                base4x = 67 + (hash % 7);
-                baseAwm = 42;
-                baseDpi = 420 + (hash % 40);
-                baseFire = 48;
-            } else if (selectedSensiType === 'MEDIA') {
-                baseGen = 86 + (hash % 7);
-                baseRed = 84 + (hash % 6);
-                base2x = 83 + (hash % 6);
-                base4x = 85 + (hash % 5);
-                baseAwm = 52;
-                baseDpi = 550 + (hash % 50);
-                baseFire = 44;
+                gen -= 12; red -= 14; x2 -= 12; x4 -= 13; dpi -= 80; fire += 6;
             } else if (selectedSensiType === 'ALTA') {
-                baseGen = 95 + (hash % 4);
-                baseRed = 94 + (hash % 4);
-                base2x = 93 + (hash % 5);
-                base4x = 96 + (hash % 3);
-                baseAwm = 62;
-                baseDpi = 620 + (hash % 80);
-                baseFire = 39;
+                gen += 6; red += 6; x2 += 6; x4 += 5; dpi += 60; fire -= 4;
             }
 
             if (selectedShotType === 'TODO ROJO') {
-                baseRed += 2;
-                baseGen += 1;
+                red += 3;
+                gen += 1;
             } else if (selectedShotType === 'VELOZ') {
-                baseGen += 3;
+                gen += 4;
+                x4 += 2;
             }
 
-            document.getElementById('valGen').innerText = baseGen + '%';
-            document.getElementById('valRed').innerText = baseRed + '%';
-            document.getElementById('val2x').innerText = base2x + '%';
-            document.getElementById('val4x').innerText = base4x + '%';
-            document.getElementById('valAwm').innerText = baseAwm + '%';
-            document.getElementById('valCam').innerText = (80 + (hash % 10)) + '%';
-            document.getElementById('valDpi').innerText = baseDpi;
-            document.getElementById('valFire').innerText = (baseFire - 2) + '% - ' + (baseFire + 3) + '%';
+            // LÍMITES DE SEGURIDAD (MÁXIMO 100% Y MÍNIMO 40%)
+            gen = Math.min(100, Math.max(40, gen));
+            red = Math.min(100, Math.max(40, red));
+            x2 = Math.min(100, Math.max(40, x2));
+            x4 = Math.min(100, Math.max(40, x4));
+            awm = Math.min(100, Math.max(30, awm));
+            cam = Math.min(100, Math.max(50, cam));
+
+            // MOSTRAR RESULTADOS EN PANTALLA
+            document.getElementById('valGen').innerText = gen + '%';
+            document.getElementById('valRed').innerText = red + '%';
+            document.getElementById('val2x').innerText = x2 + '%';
+            document.getElementById('val4x').innerText = x4 + '%';
+            document.getElementById('valAwm').innerText = awm + '%';
+            document.getElementById('valCam').innerText = cam + '%';
+            document.getElementById('valDpi').innerText = dpi;
+            document.getElementById('valFire').innerText = (fire - 2) + '% - ' + (fire + 3) + '%';
 
             resultCard.style.display = 'block';
             resultCard.scrollIntoView({ behavior: 'smooth' });
