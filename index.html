@@ -377,8 +377,8 @@
                     <div class="option-btn" onclick="setShotType('MOVIMIENTO', this)">💨 VELOZ</div>
                 </div>
 
-                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS (Catálogo Masivo)</span>
-                <input type="text" id="deviceSearchInput" class="search-box" placeholder="Escribe tu modelo exacto (Ej: Redmi Note 12)..." oninput="filterDevices()" autocomplete="off">
+                <span class="label-title">🔍 BUSCADOR DE DISPOSITIVOS</span>
+                <input type="text" id="deviceSearchInput" class="search-box" placeholder="Escribe tu modelo exacto..." oninput="filterDevices()" autocomplete="off">
                 <div id="suggestionsList" class="suggestions-list"></div>
 
                 <button class="btn-generate" onclick="generateUniqueSensi()">⚡ GENERAR SENSI ÚNICA 100% REAL</button>
@@ -401,7 +401,7 @@
                 <div class="tips-box">
                     <h4>💡 Nota de Calibración Única:</h4>
                     <ul>
-                        <li><b>Algoritmo Hash:</b> Este resultado se calculó exclusivamente combinando las letras y caracteres del modelo introducido con el perfil seleccionado. Ningún otro teléfono dará estos mismos números exactos.</li>
+                        <li><b>Algoritmo Hash:</b> Este resultado se calculó exclusivamente combinando las letras y caracteres del modelo introducido con el perfil seleccionado.</li>
                     </ul>
                 </div>
             </div>
@@ -432,7 +432,7 @@
         let selectedDevice = '';
 
         const allDevices = [
-            // Xiaomi / Redmi / POCO (Catálogo Ampliado)
+            // Xiaomi / Redmi / POCO
             "Xiaomi 11T", "Xiaomi 11T Pro", "Xiaomi 12", "Xiaomi 12 Pro", "Xiaomi 12 Lite",
             "Xiaomi 13", "Xiaomi 13 Pro", "Xiaomi 13 Lite", "Xiaomi 13T", "Xiaomi 13T Pro",
             "Xiaomi 14", "Xiaomi 14 Pro", "Xiaomi 14 Ultra", "Xiaomi 14T", "Xiaomi 14T Pro",
@@ -531,8 +531,12 @@
             let resultCard = document.getElementById('resultCard');
             let targetText = document.getElementById('targetDeviceText');
 
-            if (inputVal === "") {
-                alert("Por favor escribe o selecciona tu modelo de celular.");
+            // VALIDACIÓN ESTRICTA: El texto ingresado debe coincidir exactamente con algún elemento de la lista oficial
+            let isValidDevice = allDevices.some(device => device.toLowerCase() === inputVal.toLowerCase());
+
+            if (inputVal === "" || !isValidDevice) {
+                alert("Por favor seleccione su modelo primero");
+                document.getElementById('deviceSearchInput').focus();
                 return;
             }
 
