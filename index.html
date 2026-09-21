@@ -90,7 +90,7 @@
             letter-spacing: 0.5px;
         }
 
-        .input-box {
+        .select-box {
             width: 100%;
             padding: 14px 16px;
             background: rgba(20, 12, 38, 0.9);
@@ -101,10 +101,16 @@
             font-weight: 700;
             margin-bottom: 16px;
             outline: none;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .input-box:focus {
+        .select-box option {
+            background: #140c26;
+            color: #ffffff;
+        }
+
+        .select-box:focus {
             border-color: var(--secondary-glow);
             box-shadow: 0 0 20px var(--primary-glow);
         }
@@ -167,6 +173,28 @@
             filter: brightness(1.15);
         }
 
+        .btn-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 14px;
+            background: rgba(168, 85, 247, 0.15);
+            color: #f0abfc;
+            border: 1px solid rgba(192, 132, 252, 0.4);
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-info:hover {
+            background: rgba(168, 85, 247, 0.3);
+        }
+
         /* RESULTADOS */
         .result-container {
             display: none;
@@ -197,7 +225,53 @@
             font-weight: 900;
         }
 
-        /* SECCIÓN DE TIPS */
+        /* MODAL DE INFO DEL CEL */
+        .info-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .info-box {
+            background: #140c26;
+            border: 2px solid var(--primary-glow);
+            border-radius: 20px;
+            padding: 24px;
+            max-width: 360px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            color: #f0abfc;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .info-box p {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .btn-close-modal {
+            background: linear-gradient(135deg, #f43f5e, #9f1239);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
         .tips-box {
             background: rgba(20, 10, 35, 0.9);
             border: 1px dashed rgba(232, 121, 249, 0.5);
@@ -237,9 +311,7 @@
             transition: color 0.2s;
         }
 
-        .back-link:hover {
-            color: #ffffff;
-        }
+        .back-link:hover { color: #ffffff; }
 
         footer {
             margin-top: 30px;
@@ -253,7 +325,7 @@
 
     <div class="container">
         <h1>FAKE MODS SENSI</h1>
-        <span class="subtitle">⚡ Optimizador Inteligente de Dispositivos</span>
+        <span class="subtitle">⚡ Selector Inteligente de Dispositivos</span>
 
         <div class="card">
             <span class="label-title">🎯 MODO DE IA</span>
@@ -275,8 +347,27 @@
                 <div class="option-btn" onclick="setSensiType('ALTA', this)">⬆️ ALTA</div>
             </div>
 
-            <span class="label-title">🔍 INGRESA TU MODELO DE CELULAR</span>
-            <input type="text" id="deviceInput" class="input-box" placeholder="Ej: TCL, Samsung A54, POCO M5, iPhone 14...">
+            <!-- SELECCIÓN DE MARCA -->
+            <span class="label-title">🏷️ SELECCIONA TU MARCA</span>
+            <select id="brandSelect" class="select-box" onchange="updateModels()">
+                <option value="">-- Elige una marca --</option>
+                <option value="samsung">Samsung</option>
+                <option value="xiaomi">Xiaomi / POCO / Redmi</option>
+                <option value="motorola">Motorola</option>
+                <option value="iphone">Apple / iPhone</option>
+                <option value="tcl">TCL / Alcatel</option>
+                <option value="huawei">Huawei / Honor</option>
+                <option value="other">Otro / Desconocido</option>
+            </select>
+
+            <!-- SELECCIÓN DE MODELO EXACTO -->
+            <span class="label-title">📱 SELECCIONA TU MODELO EXACTO</span>
+            <select id="modelSelect" class="select-box">
+                <option value="">-- Primero elige una marca --</option>
+            </select>
+
+            <!-- BOTÓN PARA VER INFO DEL CEL -->
+            <button class="btn-info" onclick="openInfoModal()">ℹ️ ¿No sabes tu modelo? Ver info del cel</button>
 
             <button class="btn-generate" onclick="generateSensi()">⚡ GENERAR SENSI VIP</button>
         </div>
@@ -295,7 +386,6 @@
             <div class="sensi-row" id="dpiRow"><span>DPI Recomendado:</span> <span class="sensi-value" id="valDpi">580</span></div>
             <div class="sensi-row"><span>Botón de Disparo:</span> <span class="sensi-value" id="valFire">42% - 46%</span></div>
 
-            <!-- TIPS PROFESIONALES -->
             <div class="tips-box">
                 <h4>💡 Tips Pro para esta Configuración:</h4>
                 <ul>
@@ -309,6 +399,15 @@
         <a href="https://github.com/FakeHack-10" target="_blank" class="back-link">← Ir al perfil principal / Repositorios</a>
     </div>
 
+    <!-- MODAL DE AYUDA PARA VER INFO DEL CEL -->
+    <div class="info-modal" id="infoModal">
+        <div class="info-box">
+            <h3>🔍 ¿CÓMO VER TU MODELO?</h3>
+            <p>Ve a los <b>Ajustes</b> de tu teléfono ⚙️ -> Baja hasta la opción <b>Acerca del teléfono</b> (o Sistema) -> Ahí verás el modelo exacto de tu dispositivo para seleccionarlo en la lista.</p>
+            <button class="btn-close-modal" onclick="closeInfoModal()">¡Entendido!</button>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 FAKE MODS - Todos los derechos reservados.</p>
     </footer>
@@ -319,6 +418,50 @@
         let selectedMode = 'VIP';
         let selectedDpi = 'CON DPI';
         let selectedSensiType = 'MEDIA';
+
+        // Base de datos de modelos por marca
+        const modelsByBrand = {
+            samsung: [
+                "Samsung Galaxy A05 / A05s", "Samsung Galaxy A14 / A15", "Samsung Galaxy A24 / A25", 
+                "Samsung Galaxy A34 / A35", "Samsung Galaxy A54 / A55", "Samsung Galaxy S23 / S24 Ultra", "Samsung Galaxy S22 / S21"
+            ],
+            xiaomi: [
+                "POCO X5 / X6 Pro", "POCO M5 / M6 Pro", "POCO F5 / F6", 
+                "Redmi Note 11 / 12 / 13 Pro", "Xiaomi 13 / 14", "Redmi 12 / 13C"
+            ],
+            motorola: [
+                "Moto G14 / G24", "Moto G54 / G84", "Moto Edge 40 / 50", "Moto G23 / G32"
+            ],
+            iphone: [
+                "iPhone 11 / 11 Pro", "iPhone 12 / 12 Pro", "iPhone 13 / 13 Pro", 
+                "iPhone 14 / 14 Pro Max", "iPhone 15 / 15 Pro Max", "iPhone SE"
+            ],
+            tcl: [
+                "TCL 40 SE / 40 NXTPAPER", "TCL 30 SE / 30 5G", "TCL 20 Pro / 20 SE"
+            ],
+            huawei: [
+                "Huawei Nova 10 / Nova 11", "Huawei P50 / P60 Pro", "Huawei Y9a / Y70"
+            ],
+            other: [
+                "Otro Dispositivo Android / Tablet"
+            ]
+        };
+
+        function updateModels() {
+            let brand = document.getElementById('brandSelect').value;
+            let modelSelect = document.getElementById('modelSelect');
+            
+            modelSelect.innerHTML = '<option value="">-- Elige tu modelo exacto --</option>';
+
+            if (modelsByBrand[brand]) {
+                modelsByBrand[brand].forEach(model => {
+                    let opt = document.createElement('option');
+                    opt.value = model;
+                    opt.innerText = model;
+                    modelSelect.appendChild(opt);
+                });
+            }
+        }
 
         function setMode(mode, element) {
             selectedMode = mode;
@@ -337,30 +480,37 @@
 
         function setSensiType(type, element) {
             selectedSensiType = type;
-            // Selecciona el contenedor de 3 opciones de sensi
             let parentGrid = element.parentElement;
             parentGrid.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
         }
 
+        function openInfoModal() {
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').style.display = 'none';
+        }
+
         function generateSensi() {
-            let device = document.getElementById('deviceInput').value.trim();
+            let brand = document.getElementById('brandSelect').value;
+            let model = document.getElementById('modelSelect').value;
             let resultCard = document.getElementById('resultCard');
             let targetText = document.getElementById('targetDeviceText');
 
-            if (device === "") {
-                alert("Por favor ingresa el modelo de tu celular.");
+            if (brand === "" || model === "") {
+                alert("Por favor selecciona tu marca y modelo exacto.");
                 return;
             }
 
-            targetText.innerText = "📱 Dispositivo: " + device.toUpperCase() + " | Sensi: " + selectedSensiType;
+            targetText.innerText = "📱 Dispositivo: " + model + " | Sensi: " + selectedSensiType;
 
             let hash = 0;
-            for (let i = 0; i < device.length; i++) {
-                hash += device.charCodeAt(i);
+            for (let i = 0; i < model.length; i++) {
+                hash += model.charCodeAt(i);
             }
 
-            // Ajustes base según el tipo de sensibilidad elegido (Baja, Media, Alta)
             let baseGen = 75, baseRed = 70, base2x = 72, base4x = 74, baseDpi = 450, baseFire = 48;
 
             if (selectedSensiType === 'BAJA') {
