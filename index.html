@@ -86,7 +86,7 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
         }
 
-        /* PANTALLA DE CREDENCIALES (USUARIO / CONTRASEÑA) */
+        /* PANTALLA DE CREDENCIALES */
         #authCard {
             text-align: center;
             margin-top: 30px;
@@ -208,7 +208,7 @@
             color: #ffffff;
         }
 
-        /* GRILLAS DE OPCIONES AVANZADAS */
+        /* GRILLAS DE OPCIONES */
         .options-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -287,14 +287,14 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 13px;
+            padding: 12px;
             border-radius: 12px;
             background: linear-gradient(135deg, #fe2c55, #25f4ee);
             color: #ffffff;
             font-weight: 900;
             font-size: 14px;
             text-decoration: none;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             box-shadow: 0 0 15px rgba(254, 44, 85, 0.3);
             transition: all 0.25s ease;
             text-transform: uppercase;
@@ -302,6 +302,31 @@
         }
 
         .btn-social:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 16px;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-whatsapp:hover {
             filter: brightness(1.15);
             transform: translateY(-2px);
         }
@@ -475,6 +500,10 @@
                     🎵 Sígueme en TikTok (@andresk1ng)
                 </a>
 
+                <a href="https://whatsapp.com/channel/0029Vb8MejvKLaHfkVTKNL2L" target="_blank" class="btn-whatsapp">
+                    💬 Únete al canal de WhatsApp
+                </a>
+
                 <span class="label-title">🎯 MODO DE INTELIGENCIA ARTIFICIAL</span>
                 <div class="options-grid-2" id="modeGrid">
                     <div class="option-btn active" onclick="setMode('VIP PRO', this)">⚡ VIP IA PRO</div>
@@ -552,7 +581,7 @@
     </div>
 
     <footer>
-        <p>COPYRIGHT: FAKEMODS - 2026</p>
+        <p>COPYRIGHT: FAKEMODS</p>
     </footer>
 
     <script>
@@ -566,7 +595,7 @@
                 document.getElementById('authCard').style.display = 'none';
                 document.getElementById('mainAppContent').style.display = 'block';
             } else {
-                alert('❌ Usuario o contraseña incorrectos. Verifica tus credenciales (USUARIO: FAKE / CONTRASEÑA: MODS10)');
+                alert('❌ Acceso denegado. Usuario o contraseña incorrectos.');
             }
         }
 
@@ -621,10 +650,10 @@
             "Tecno Spark 8", "Tecno Spark 9", "Tecno Spark 10", "Tecno Spark 20 Pro",
             "Tecno Pova 4", "Tecno Pova 5", "Tecno Pova 6 Pro", "Tecno Camon 18", "Tecno Camon 19", "Tecno Camon 20", "Tecno Camon 30 Premier",
 
-            // Gaming Pro (RedMagic, Black Shark, Asus ROG)
+            // Gaming Pro
             "Nubia RedMagic 9S Pro", "Black Shark 5 Pro", "Black Shark 4", "Asus ROG Phone 8 Pro", "Lenovo Legion Phone Duel",
 
-            // Realme, Oppo, Vivo, Huawei, ZTE, etc.
+            // Realme, Oppo, Vivo, Huawei, etc.
             "Realme C11", "Realme C21", "Realme C25", "Realme C30", "Realme C33", "Realme C53",
             "Realme C55", "Realme C67", "Realme 8", "Realme 9", "Realme 10", "Realme 11", "Realme 12 Pro",
             "Realme GT Master", "Realme GT Neo 3", "Realme GT 5",
@@ -638,7 +667,6 @@
             "Honor X6", "Honor X7", "Honor X8", "Honor X9", "Honor 50", "Honor 70", "Honor 90",
             "ZTE Blade A31", "ZTE Blade A51", "ZTE Blade A52", "ZTE Blade A71", "ZTE Blade A72",
             "ZTE Blade A73", "ZTE Blade V30", "ZTE Blade V40", "ZTE Blade V50 Smart",
-            "Nubia RedMagic 7", "Nubia RedMagic 8 Pro", "Nubia RedMagic 9 Pro",
             "OnePlus Nord N10", "OnePlus Nord N20", "OnePlus Nord N30", "OnePlus 8", "OnePlus 9", "OnePlus 10 Pro", "OnePlus 11", "OnePlus 12",
             "Asus ROG Phone 5", "Asus ROG Phone 6", "Asus ROG Phone 7", "Asus Zenfone 9", "Asus Zenfone 10",
             "Lenovo K13", "Lenovo K14", "TCL 20 SE", "TCL 30 SE", "TCL 40 SE", "TCL 40 NXTPAPER",
